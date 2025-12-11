@@ -1,0 +1,4098 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Script do MathJax no <head> -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    
+    <title>Nivelamento - Física Nivel 1 - Unidade 5</title>
+
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .titulo-programa {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .titulo-materia {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 133px;
+            color: #003974;
+            font-weight: lighter;
+        }
+
+        .subtitulo-professor {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 59px;
+            color: #0058B4;
+            font-weight: lighter;
+        }
+
+        .titulo-unidade {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 60px;
+        }
+
+        .titulo-saiba-mais {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 70px;
+        }
+        /* Estilização de Bebas Neue FIM */
+
+
+        /* Estilização de Roboto INICIO */
+        .peso-1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 45px;
+        }
+
+        .texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 35px;
+        }
+
+        .sub-texto {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .titulo-box {
+            font-family: 'Roboto', sans-serif;
+            font-size: 32px;
+        }
+
+        .fonte {
+            font-family: 'Roboto', sans-serif;
+            font-size: 25px;
+        }
+
+        .citacao {
+            font-family: 'Roboto', sans-serif;
+            font-size: 30px;
+            font-style: italic;
+        }
+        /* Estilização de Roboto FIM */
+
+        /* Navbar styles INICIO */
+        .navbar {
+            background-color: #9F43BE;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            position: -webkit-sticky; /* Para navegadores antigos */
+            position: sticky; /* Para manter no topo durante o scroll */
+            top: 0; /* Faz com que a navbar fique no topo */
+            z-index: 10; /* Garante que o menu fique acima de outros elementos */
+            transition: background-color 0.3s ease; /* Transição suave para o efeito */
+        }
+
+        .navbar .logo img {
+            height: 50px;/* Ajuste conforme necessário */
+            width: auto;
+        }
+
+        .navbar .menu-toggle {
+            cursor: pointer;
+            font-size: 1.5em;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            background-color: #9f43be;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 200px;
+            height: auto;
+            border-radius: 5px;
+            z-index: 10; /* Garante que o menu esteja acima de outros elementos */
+        }
+
+        .navbar ul.show {
+            display: flex;
+        }
+
+        .navbar ul li {
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .navbar ul li a:hover {
+            color: #003974; /* Cor ao passar o mouse */
+        }
+        .navbar .menu-toggle i:last-child {
+            display: none; /* Esconde o ícone de fechar inicialmente */
+        }
+        
+
+         /* Navbar styles FIM */
+
+        /* Titulo styles INICIO */
+        .titulo-intro {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .titulo-intro h1 {
+            margin: 0;
+            padding: 15px;
+        }
+        /* Titulo styles FIM */
+
+        /* Estilo da Capa do Livro INICIO*/
+        .capa-livro {
+            position: relative;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* Para evitar que o pseudoelemento saia do container */
+            border-top: 3px solid #003974;
+            border-bottom: 3px solid #003974;
+        }
+
+        .capa-livro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://res.cloudinary.com/di4ria1pf/image/upload/v1759773391/244287440_l_w7bprt.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.40; /* Controle da opacidade */
+            z-index: -1; /* Coloca o background atrás do conteúdo */
+        }
+
+        
+
+        .capa-livro .conteudo-capa {
+            text-align: center;
+            color: white;
+            padding: 20px; /* Espaço interno para o texto */
+        }
+
+        .capa-livro .titulo-materia {
+            font-size: 80px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 0;
+        }
+
+        .capa-livro .subtitulo-professor {
+            font-size: 40px;
+            font-family: 'Bebas Neue', cursive;
+            margin: 10px 0 0;
+        }
+        /* Estilo da Capa do Livro FIM*/
+
+        /* Barra Superior */
+        .barra-superior {
+            background-color: #015A42; /* Cor verde escuro */
+            width: 100%;
+            padding: 15px 15px;
+            text-align: center;
+            box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+            overflow-x: hidden; /* Previne rolagem horizontal */
+        }
+
+        .barra-superior .titulo-barra {
+            font-family: 'Bebas Neue', cursive;
+            color: #FFF; /* Cor branca */
+            font-size: 50px;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        /* Conteúdo da Introdução */
+        .introducao {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            overflow-x: hidden; /* Impede rolagem horizontal */
+        }
+        
+        .introducao .titulo-introducao {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42; /* Cor verde */
+            margin: 10px auto 10px auto;
+        }
+
+        .introducao .caixa-texto {
+            width: 100%;
+            background-color: #E2F4EB; /* Verde mais claro */
+            padding: 64px 0;
+        }
+                /* Conteúdo centralizado dentro da faixa */
+        .introducao .conteudo-centralizado {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Parágrafos da introdução */
+        .introducao .conteudo-centralizado p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVIDADE SEÇÕES ACIMA*/
+        /* Capa do Livro - Responsividade */
+        @media (max-width: 768px) {
+            .capa-livro {
+                height: 70vh; /* Reduz a altura da capa */
+            }
+            .capa-livro::before {
+                background-position: center center; /* centraliza melhor no mobile */
+            }
+            .capa-livro .titulo-materia {
+                font-size: 40px; /* Reduz o tamanho do título */
+            }
+
+            .capa-livro .subtitulo-professor {
+                font-size: 24px; /* Reduz o tamanho do subtítulo */
+            }
+            .capa-livro .titulo-programa {
+                font-size: 18px;
+            }
+            .capa-livro .conteudo-capa {
+                padding: 15px; /* Ajusta o padding para telas menores */
+            }
+        }   
+            /* Seção Introdução - Responsividade */
+        @media (max-width: 768px) {
+            .barra-superior {
+                padding: 10px; /* Reduz o padding da barra */
+            }
+
+            .barra-superior .titulo-barra {
+                font-size: 1.6rem;
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 30px;
+                text-align: left;
+            }
+
+            .introducao .titulo-introducao {
+                font-size: 2.8rem; /* Reduz o tamanho do título da introdução */
+                margin-top: 20px; /* Ajusta o espaçamento superior */
+            }
+
+            .introducao .caixa-texto {
+                padding: 20px; /* Reduz o padding da caixa de texto */
+                width: 100%; /* Ajusta a largura da caixa */
+            }
+
+            .introducao .caixa-texto p {
+                font-size: 1rem; /* Reduz o tamanho do texto */
+                line-height: 1.4;
+                margin-bottom: 10px; /* Ajusta a margem entre os parágrafos */
+            }
+            .introducao .conteudo-centralizado {
+                max-width: 800px;
+                margin: 10px 0;
+                padding: 0 40px;
+            }
+        }
+        /* Responsividade para o título da seção de Programa */
+        @media (max-width: 768px) {
+            .titulo-programa {
+                font-size: 50px; /* Ajuste do tamanho do título */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-programa {
+                font-size: 35px; /* Ajuste para telas muito pequenas */
+            }
+        }
+
+        /* Estilo base da seção */
+        .secao1 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao1 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .secao1 .tabs-section {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        /* Estilo base da seção */
+        .secao1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9f43be11;
+            padding: 20px;
+        }
+        .secao1 .outer-container-alt {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao1 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao1 .faixa-verde {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao1 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao1 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao1 p {
+            font-size: 19px;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;    
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 1rem;
+            }
+            .secao1 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao1 .faixa-verde .titulo-secao {
+                font-size: 20px;
+            }
+
+            .secao1 p {
+                font-size: 0.95rem;
+            }
+        }
+        /* Estilo base da seção */
+        .secao2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .secao2 .conteudo-secao {
+            width: 100%;
+            padding: 64px 0;
+            box-sizing: border-box;
+        }
+        .secao2 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+       .secao2 .outer-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+       }
+        /* Imagem de topo */
+        .secao2 .imagem-topo {
+            width: 100%;
+            height: auto;
+            max-height: 290px; /* ajuste essa altura conforme necessário */
+            object-fit: cover; /* garante que a imagem preencha sem distorcer */
+            display: block;
+            margin: 0;
+            padding: 0;
+            background-color: #FFF;
+        }
+
+        /* Faixa verde */
+        .secao2 .faixa-verde {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .secao2 .faixa-verde .titulo-secao {
+            font-size: 25px;
+            font-family: 'Roboto', sans-serif;
+            color: #015A42; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        .secao2 .titulo-verde {
+            font-size: 20px;
+            font-family: 'Roboto', sans-serif;
+            color: #3a95a6; /* Cor verde */
+            width: 90%;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+        /* Parágrafo padrão */
+        .secao2 p {
+            font-size: 19px;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+            line-height: 1.6;
+            color: #333;
+            margin: 10px auto;
+            width: 90%;
+            max-width: 800px;
+                 
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 30px;
+            }
+
+            .secao2 p {
+                font-size: 1rem;
+            }
+            .secao2 .imagem-topo {
+                max-height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .secao2 .faixa-verde .titulo-secao {
+                font-size: 24px;
+            }
+
+            .secao2 p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ===== ESTRUTURA DA CAIXA ===== */
+        .caixa-dupla {
+            position: relative;
+            display: inline-block;
+            max-width: 650px;
+            width: 80%;
+        }
+
+        /* Fundo verde atrás */
+        .caixa-dupla::before {
+            content: "";
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: 100%;
+            height: 100%;
+            background-color: #015A42;
+            border-radius: 12px;
+            z-index: 0;
+        }
+
+        /* Caixa frontal */
+        .caixa-conteudo {
+            position: relative;
+            background-color: rgba(230, 242, 238, 0.75); /* leve transparência */
+            border: 2px solid #015A42;
+            border-radius: 12px;
+            padding: 32px 40px;
+            text-align: center;
+            line-height: 1.5;
+            font-size: 1rem;
+            font-weight: normal;
+            z-index: 1;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            transform: translate(3px, 3px); /* deslocamento diagonal */
+        }
+
+        /* ===== VERSÃO DESKTOP (padrão) ===== */
+        @media (min-width: 992px) {
+        .caixa-conteudo {
+            max-width: 600px;
+            padding: 22px 48px;
+            font-size: 0.9rem;
+        }
+
+        .caixa-dupla::before {
+            top: 8px;
+            left: 8px;
+            border-radius: 14px;
+        }
+        }
+
+        /* ===== RESPONSIVO PARA TABLETS ===== */
+        @media (max-width: 768px) {
+        .caixa-conteudo {
+            padding: 16px 28px;
+            font-size: 0.95rem;
+        }
+
+        .caixa-dupla::before {
+            top: 6px;
+            left: 6px;
+        }
+        }
+
+        /* ===== RESPONSIVO PARA CELULARES ===== */
+        @media (max-width: 480px) {
+        .caixa-conteudo {
+            padding: 12px 20px;
+            font-size: 0.9rem;
+        }
+
+        .caixa-dupla::before {
+            top: 4px;
+            left: 4px;
+        }
+        }
+
+        /* Título centralizado fora do container */
+        .titulo-figura-central {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            font-weight: normal;
+            margin: 20px auto 15px auto;
+        }
+
+        .titulo-figura-central .figura {
+            color: #015A42; /* verde padrão */
+        }
+
+        .titulo-figura-central .figura::after {
+            content: " ";
+            white-space: pre;
+        }
+
+        /* Bloco de figura simples (sem borda e sem fundo) */
+        .bloco-figura-simples {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0;
+            background: none;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        /* Imagem centralizada */
+        .bloco-figura-simples .figura-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .bloco-figura-simples .figura-container img {
+            max-width: 75%;
+            height: auto;
+            display: block;
+        }
+
+        /* Fonte abaixo da imagem */
+        .bloco-figura-simples .fonte-imagem {
+            font-size: 12px;
+            color: #555;
+            text-align: center;
+            margin: 5px auto 12px auto;
+            max-width: 90%;
+        }
+
+        /* Descrição mais larga */
+        .bloco-figura-simples .descricao-figura-larga {
+            font-size: 14px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.5;
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .titulo-figura-central {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            .bloco-figura-simples .descricao-figura-larga {
+                font-size: 13px;
+                max-width: 100%;
+            }
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 600px;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            min-height: 180px; /* mantém proporção mínima */
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: auto;
+            min-height: 180px;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Frente */
+        .flip-card-front {
+            background-color: #9F43BE;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #9F43BE;
+        }
+
+        /* Verso */
+        .flip-card-back {
+            background-color: white;
+            color: #9F43BE;
+            border: 2px solid #9F43BE;
+            transform: rotateY(180deg);
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .flip-card-front, .flip-card-back {
+            height: auto;
+            min-height: 180px;
+        }
+        /* Responsividade aprimorada */
+        @media (max-width: 768px) {
+            .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            }
+
+            .flip-card {
+            aspect-ratio: 1 / 1.2;
+            }
+
+            .flip-card-front,
+            .flip-card-back {
+            font-size: 0.9rem;
+            padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            }
+
+            .flip-card {
+            aspect-ratio: 1 / 1.3;
+            }
+
+            .flip-card-front,
+            .flip-card-back {
+            font-size: 0.85rem;
+            padding: 8px;
+            }
+        }
+
+        /* === Temas reutilizáveis para os flip-cards === */
+
+            /* Tema Verde */
+            .tema-verde .flip-card-front {
+                background-color: #015A42;
+                border-color: #015A42;
+                color: #FFFFFF;
+            }
+
+            .tema-verde .flip-card-back {
+                background-color: #FFFFFF;
+                border-color: #015A42;
+                color: #015A42;
+            }
+            /* --- Centraliza o 3º card apenas quando houver exatamente 3 cards --- */
+        /* Seleciona o 3º card e garante que ele seja o último (ou seja, existem exatamente 3) */
+        .cards-container > .flip-card:nth-child(3):last-child {
+            grid-column: 1 / -1;   /* ocupa as duas colunas do grid */
+            justify-self: center;  /* centraliza dentro da área que ocupa */
+            max-width: 280px;      /* controla largura para não esticar — ajuste se quiser */
+            width: 100%;           /* mantém o comportamento responsivo */
+        }
+
+        /* Ajuste do gap quando o 3º card ocupa toda a linha (opcional) */
+        .cards-container > .flip-card:nth-child(3):last-child + .flip-card {
+            /* regra só por segurança — não deve haver elementos depois, pois é o last-child */
+        }
+
+        /* Responsividade: mantemos o mesmo comportamento em telas menores */
+        @media (max-width: 768px) {
+            .cards-container > .flip-card:nth-child(3):last-child {
+                max-width: 45%; /* menor para telas menores — ajuste conforme necessário */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cards-container > .flip-card:nth-child(3):last-child {
+                max-width: 90%; /* em telas muito estreitas deixa ficar quase full-width */
+            }
+        }
+                /* === Tamanho fixo apenas para os flip-cards de PLASTOS e VACÚOLOS === */
+        .cards-container.dupla-fixa {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            justify-content: center;
+            align-items: start;
+        }
+
+        .cards-container.dupla-fixa .flip-card {
+            width: 320px;   /* largura fixa igual */
+            height: 380px;  /* altura fixa igual */
+            margin: 0 auto;
+        }
+
+        .cards-container.dupla-fixa .flip-card-inner {
+            width: 100%;
+            height: 100%;
+        }
+
+        .cards-container.dupla-fixa .flip-card-front,
+        .cards-container.dupla-fixa .flip-card-back {
+            height: 100%;
+            overflow-y: auto; /* evita vazamento vertical */
+            padding: 18px;
+            box-sizing: border-box;
+        }
+        /* === Cores personalizadas apenas para os flip-cards da dupla-fixa === */
+        .cards-container.dupla-fixa .flip-card-back {
+            color: #015A42; /* roxo escuro para o texto */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .cards-container.dupla-fixa {
+                grid-template-columns: 1fr;
+            }
+
+            .cards-container.dupla-fixa .flip-card {
+                width: 90%;
+                height: auto;
+                min-height: 320px;
+            }
+        }
+
+        /* Acordeon styles */
+        .acordeon-container {
+            margin-top: 20px;
+            width: 90%; /* Ajuste de largura */
+            max-width: 800px; /* Limite máximo */
+        }
+
+        .acordeon {
+            border-radius: 10px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .acordeon-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3a95a6;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .acordeon-headerb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #9F43BE;
+            color: #FFF;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-headerd {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #134969; /* exemplo: laranja suave */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .acordeon-content {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #3a95a6;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentb {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #134969;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentc {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; /* Remove padding para que o header toque no conteúdo */
+            border: 2px solid #9F43BE;
+            border-radius: 0 0 10px 10px; /* Apenas canto inferior arredondado */
+        }
+
+        .acordeon-contentd {
+            display: none;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            padding-top: 0; 
+            border: 2px solid #134969; /* mesma cor da header para consistência */
+            border-radius: 0 0 10px 10px; 
+        }
+
+        .acordeon-content p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentb p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .acordeon-contentc h4 {
+            text-align: center;
+
+        }
+        .acordeon-contentd p {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        .tituloacordeonverde{
+            color: #015A42;
+        }
+            /* Estilo do ícone da seta */
+        .acordeon-icon {
+            font-size: 40px;
+            transition: transform 0.3s ease; /* Para rotação suave */
+        }
+            
+            /* Rotação da seta para cima */
+        .acordeon-header.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerb.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+        /* Rotação da seta para cima */
+        .acordeon-headerc.active .acordeon-icon {
+            transform: rotate(180deg); /* Gira a seta para cima */
+        }
+                /* Ícone giratório */
+        .acordeon-headerd.active .acordeon-icon {
+            transform: rotate(180deg);
+        }
+       
+                /* Mantém fórmulas normais no desktop */
+        .acordeon-contentc mjx-container {
+            display: inline-block !important;
+            overflow: visible !important;
+            white-space: normal !important;
+            max-width: 100%;
+            text-align: center;
+        }
+        /* 📱 Responsividade — corrige fórmulas longas no mobile */
+        @media (max-width: 600px) {
+            .acordeon-contentc {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 6px; /* dá um pequeno respiro no scroll */
+            }
+
+            /* Cada expressão matemática vira um bloco rolável */
+            .acordeon-contentc mjx-container {
+                display: block !important;
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                white-space: nowrap !important;
+                text-align: left !important;
+                max-width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Centraliza visualmente os parágrafos dentro do acordeon */
+            .acordeon-contentc p {
+                text-align: center;
+                margin: 10px auto;
+            }
+        }
+
+                    /* --- Força mínima para que mjx fique rolável no mobile --- */
+            @media (max-width: 600px) {
+            /* Container do conteúdo: permitir overflow-x funcional */
+            .acordeon-contentc {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                /* não mexemos em overflow-y, nem no overflow do .acordeon (mantemos o visual) */
+            }
+
+            /* mjx-container: garantir que o conteúdo interno possa ter largura natural maior
+                (min-width: max-content faz com que o elemento não seja encolhido) */
+            .acordeon-contentc mjx-container {
+                display: inline-block !important;
+                white-space: nowrap !important;           /* evita wrap que "quebra" largura */
+                min-width: -webkit-min-content !important;
+                min-width: -moz-min-content !important;
+                min-width: min-content !important;
+                pointer-events: auto !important;          /* garante que toques atinjam este elemento */
+                touch-action: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            /* Se você usa spans com inline-block dentro de p (como seu exemplo),
+                garantir que eles não forcem comportamento estranho: */
+            .acordeon-contentc p,
+            .acordeon-contentc p > span {
+                overflow: visible;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            }
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .acordeon-header {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerb {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+
+            .acordeon-headerc {
+                font-size: 20px; /* Reduzir tamanho do texto */
+                padding: 12px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 30px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 14px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 10px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 15px; /* Ajustar margem para menor espaçamento */
+            }
+            .acordeon-headerd {
+                font-size: 20px;
+                padding: 12px;
+            }
+
+            .acordeon-contentd {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd p {
+                margin: 15px;
+            }
+        }
+        /* Responsividade para telas menores ainda (480px) */
+        @media (max-width: 480px) {
+            .acordeon-header {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-content {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-content p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+            .acordeon-headerb {
+                font-size: 16px; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentb {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentb p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 19px;
+            }
+
+            .acordeon-headerc {
+                font-size: 0.9rem; /* Reduz ainda mais o tamanho do texto */
+                padding: 10px; /* Ajustar espaçamento */
+            }
+
+            .acordeon-icon {
+                font-size: 25px; /* Reduzir tamanho do ícone */
+            }
+
+            .acordeon-contentc {
+                font-size: 13px; /* Reduzir tamanho do texto do conteúdo */
+                padding: 8px; /* Reduzir espaçamento interno */
+            }
+
+            .acordeon-contentc p {
+                margin: 10px; /* Ajustar margem para menor espaçamento */
+                font-size: 0.9rem;
+            }
+            .acordeon-headerd {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .acordeon-contentd {
+                font-size: 13px;
+                padding: 8px;
+            }
+
+            .acordeon-contentd p {
+                margin: 10px;
+                font-size: 19px;
+            }
+        }
+        .titulo-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+            /* Acordeon styles FIM */
+
+            .slider-texto-container {
+            position: relative;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #3a95a6;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            overflow: hidden;
+            background-color: #FFF;
+            border-radius: 8px;
+        }
+        .slider-texto-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slide-texto {
+            display: none;
+            flex-shrink: 0;
+            width: 100%;
+            text-align: center;
+            word-break: keep-all;
+            white-space: normal;
+            
+        }
+
+        .slide-texto.ativo {
+            display: block;
+        }
+
+        .titulo-texto {
+            color: #b9e5a9;
+            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+        }
+
+        .conteudo-texto {
+            font-size: 16px !important;
+            color: #333 !important;
+            font-family: 'Roboto', sans-serif !important;
+            width: 100%;
+            margin: 0 auto;
+            word-break: normal;
+            white-space: normal;
+            text-align: left !important;
+        }
+        .titulo-texto,
+        .conteudo-texto {
+            word-break: break-word;
+            white-space: normal;
+        }
+        .seta-texto {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+            color: #3a95a6;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .seta-texto.esquerda {
+            left: 0;
+        }
+
+        .seta-texto.direita {
+            right: 0;
+        }
+
+    @media (max-width: 768px) {
+        .titulo-texto {
+            font-size: 20px;
+        }
+
+        .conteudo-texto {
+            font-size: 18px;
+        }
+
+        .seta-texto {
+            font-size: 24px;
+        }
+    }
+        .slider-texto-indicadores {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .dot-texto {
+            height: 12px;
+            width: 12px;
+            margin: 0 6px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dot-texto.ativo {
+            background-color: #3a95a6;
+        }
+        /* ------------------- */
+        /* TEMAS DE COR        */
+        /* ------------------- */
+
+        /* Tema verde */
+        .tema-verde {
+            border-color: #92d678;
+        }
+        .tema-verdeborda {
+            border-color: #015A42 !important;
+        }
+        .tema-verde .seta-texto {
+            color: #92d678;
+        }
+        .tema-verde .dot-texto.ativo {
+            background-color: #92d678;
+        }
+
+        /* Tema roxo */
+        .tema-roxo {
+            border-color: #9F43BE;
+        }
+        .tema-roxo .seta-texto {
+            color: #9F43BE;
+        }
+        .tema-roxo .dot-texto.ativo {
+            background-color: #9F43BE;
+        }
+
+        /* Tema roxo */
+        .tema-green {
+            border-color: #015A42;
+        }
+        .tema-green .seta-texto {
+            color: #015A42;
+        }
+        .tema-green .dot-texto.ativo {
+            background-color: #015A42;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .seta-texto { font-size: 24px; }
+            .conteudo-texto { font-size: 18px; }
+        }
+
+        /* TESTES */
+
+        .quadro-problema {
+            max-width: 800px;
+            width: 95%; /* adapta o quadro à tela menor */
+            margin: 20px auto;
+            border: 2px solid #015A42;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Roboto', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .quadro-problema .topo {
+            background-color: #ffffff;
+            padding: 10px;
+            
+        }
+
+        .quadro-problema .resolucao {
+            background-color: #E2F4EB;
+            padding: 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .quadro-problema h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .quadro-problema p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .quadro-problema code {
+            background-color: #d9f0e1;
+            padding: 2px 4px;
+            border-radius: 20px;
+            font-family: monospace;
+        }
+        
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .resolucao p {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .resolucao p {
+                font-size: 0.9rem;
+            }
+        }
+        .figura-container-reduzida {
+            text-align: center; /* centraliza a imagem */
+            margin: 15px 0; /* espaço acima e abaixo da imagem */
+        }
+
+        .figura-container-reduzida img {
+            max-width: 80%; /* imagem ocupa a largura total no mobile */
+            height: auto; /* mantém proporção */
+            border-radius: 4px; /* opcional, suaviza bordas */
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .quadro-problema {
+                width: 90%;
+                font-size: 15px;
+            }
+
+            .quadro-problema p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%; /* imagem se ajusta completamente */
+            }
+
+            .quadro-problema .resolucao {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quadro-problema {
+                width: 95%;
+                border-width: 1.5px;
+            }
+
+            .quadro-problema p {
+                font-size: 14px;
+            }
+
+            .figura-container-reduzida img {
+                max-width: 100%;
+            }
+        }
+         /* Wrapper universal para expressões longas */
+        .math-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 4px; /* espaço para o scroll no mobile */
+        }
+
+        /* Impede MathJax de estourar o container */
+        .math-wrapper mjx-container {
+            display: inline-block;
+            max-width: 100%;
+            white-space: nowrap;
+        }
+        
+        .lista-compacta {
+            list-style: none; 
+            margin: 0;
+            padding: 0;
+            padding-left: 80px;     /* recuo original (preservado) */
+        }
+
+        .lista-compacta li {
+            position: relative;
+            padding-left: 20px;
+            margin: 20px 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .lista-compacta li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 20px;
+        }
+
+         .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+            overflow: hidden;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* garante que se ajuste à tela inicialmente */
+            transition: transform 0.2s ease;
+            transform-origin: center center;
+        }
+        .lightbox-hint {
+            position: absolute;
+            bottom: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            font-family: sans-serif;
+            text-align: center;
+            animation: fadeOut 4s forwards; /* some sozinho */
+        }
+        .zoomable {
+            cursor: zoom-in; /* ícone de lupa ao passar o mouse */
+            transition: transform 0.2s ease;
+        }
+
+        .zoomable:hover {
+            transform: scale(1.02); /* leve efeito de destaque no hover */
+        }
+        @keyframes fadeOut {
+            0% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+                /* Animação suave */
+                @keyframes zoomIn {
+                    from { transform: scale(0.7); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+
+
+        .play-icon {
+            display: flex; /* Flexbox para centralizar o conteúdo */
+            justify-content: center;
+            align-items: center;
+            background-color: #015A42; /* Fundo verde */
+            color: #FFF; /* Ícone branco */
+            width: 90px; /* Largura do botão */
+            height: 55px; /* Altura do botão */
+            border-radius: 13px;
+            font-size: 40px; /* Tamanho do ícone */
+            cursor: pointer; /* Cursor de clique */
+            transition: transform 0.3s ease; /* Efeito de transição */
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1); /* Aumenta levemente no hover */
+        }
+                /* Responsividade - Ajuste para telas menores */
+        @media (max-width: 768px) {
+            .play-icon {
+                width: 60px; /* Diminui a largura */
+                height: 40px; /* Diminui a altura */
+                font-size: 25px; /* Diminui o tamanho do ícone */
+            }
+        }
+        /* Modal - Oculto por padrão */
+        .video-modal {
+            display: none; /* Inicialmente o modal está oculto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
+            z-index: 1000; /* Garantir que o modal fique acima de outros conteúdos */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Conteúdo do modal (onde ficará o vídeo) */
+        .video-content {
+            position: relative;
+            background-color: #015A42;
+            border-radius: 10px;
+            padding: 20px;
+        }
+         
+        /* Responsividade - Ajustes para dispositivos móveis */
+        @media (max-width: 768px) {
+            .video-content {
+                max-width: 100%; /* Maximize a largura do modal no mobile */
+                padding: 10px;
+            }
+
+            .video-content iframe {
+                width: 100%; /* O iframe ocupará toda a largura disponível */
+                height: 56.25vw; /* Isso mantém a proporção de 16:9 */
+                max-height: 80vh; /* Evita que o vídeo ultrapasse a tela */
+                border-radius: 10px;
+            }
+        }
+
+        /* Botão de fechar */
+        .close-btn {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 40px;
+            color: #FFF;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        .close-btn:hover {
+            transform: scale(1.2); /* Aumenta levemente no hover */
+            color: #FF0000; /* Muda a cor para vermelho no hover */
+        }
+                /* Container */
+        .video-play-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        /* Botão circular */
+        .video-play-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #017A5A, #015A42); /* Gradiente verde */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: #FFF;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            font-size: 55px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        /* Efeito pulsante */
+        .video-play-btn::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(1,90,66,0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            70% { transform: scale(1.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .video-play-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Texto abaixo */
+        .video-play-text {
+            margin-top: 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            color: #015A42;
+            font-weight: 600;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .video-play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 35px;
+            }
+
+            .video-play-btn::after {
+                width: 85px;
+                height: 85px;
+            }
+
+            .video-play-text {
+                font-size: 14px;
+            }
+        }
+
+       .paragrafo-seta {
+            position: relative;
+            /* <<< AQUI você ajusta o recuo do bloco inteiro */
+            margin-left: 60px !important;
+            padding-left: 20px;   /* distância EXATA entre seta e texto */
+            line-height: 1.6;
+        }
+
+        .paragrafo-seta::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            top: 0.1em;           /* alinha verticalmente com o texto */
+            font-size: 20px;      /* menor, mais elegante e proporcional */
+            line-height: 1;
+        }
+
+        .download-section {
+                padding: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 15px;
+            }
+            .download-btn {
+                background-color: #9F43BE;
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 10px 15px;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: all 0.3s ease;
+                font-weight: bold;
+                margin-top: 80px;
+            }
+
+            .download-btn i {
+                font-size: 18px;
+            }
+
+            .download-btn:hover {
+                background-color: #7D3598;
+            }
+                /* ===== Seções de Conclusão e Referências ===== */
+        .conclusao, .referencias {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .conclusao {
+            background-color: #E2F4EB; /* fundo suave */
+        }
+
+        .referencias {
+            background-color: #FFF;
+            border-top: 3px solid #015A42;
+            border-bottom: 3px solid #015A42;
+        }
+
+        /* Títulos */
+        .titulo-conclusao, .titulo-referencias {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 50px;
+            font-weight: lighter;
+            color: #015A42;
+            margin: 10px auto 20px auto;
+            text-align: left; /* garante centralização em desktop */
+        }
+
+        /* Caixas de texto */
+        .conclusao .caixa-texto, 
+        .referencias .caixa-texto {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Parágrafos */
+        .conclusao .caixa-texto p,
+        .referencias .caixa-texto p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Cores de texto diferentes */
+        .conclusao .caixa-texto p {
+            color: #333;
+        }
+        .referencias .caixa-texto p {
+            color: #000;
+        }
+
+        /* Links em referências */
+        .referencias .caixa-texto a {
+            word-break: break-all;
+            color: #015A42;
+            text-decoration: underline;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 2rem;
+            }
+            .conclusao .caixa-texto p,
+            .referencias .caixa-texto p {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 95%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .titulo-conclusao, .titulo-referencias {
+                font-size: 1.8rem;
+            }
+            .conclusao .caixa-texto, 
+            .referencias .caixa-texto {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+
+        /* Estilização do rodapé */
+        .footer {
+            border-top: 3px solid #015A42; /* Borda superior */
+            background-color: #FFFFFF; /* Fundo branco */
+            text-align: center; /* Centralizar texto */
+            padding: 15px 0; /* Espaçamento interno */
+            box-sizing: border-box; /* Inclui padding nas dimensões */
+        }
+
+        .footer p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #015A42; /* Cor do texto */
+            margin: 0; /* Remove espaçamento externo */
+        }
+        /* Texto descritivo */
+        .footer .fonte-menor {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #555; /* Cor neutra */
+            line-height: 1.5; /* Espaçamento entre linhas */
+            display: block; /* Garante quebra para nova linha */
+            margin-top: 10px; /* Espaço entre o texto e o divisor */
+        }
+                /* Divisor */
+        .footer-divider {
+            border: none; /* Remove borda padrão */
+            height: 1px; /* Altura da linha */
+            background-color: #015A42; /* Cor da linha */
+            margin: 10px auto; /* Espaçamento vertical */
+            width: 80%; /* Define a largura do divisor */
+            opacity: 0.5; /* Reduz opacidade para suavizar */
+        }
+                /* Ajustes do rodapé para mobile */
+        @media (max-width: 480px) {
+            .footer p {
+                font-size: 15px; /* Ajusta o tamanho da fonte */
+            }
+            .footer .fonte-menor {
+                font-size: 12px; /* Reduz tamanho da fonte */
+                line-height: 1.4; /* Ajusta o espaçamento */
+            }
+            .footer-divider {
+                width: 100%; /* Ajusta largura do divisor no mobile */
+            }
+        }
+        .logo-final {
+            background-color: #b9e5a92c;
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #015A42;
+        }
+
+        .logo-final img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+        /* Nova seção com os títulos ocupando a tela inteira */
+        .ficha-titulos {
+            background-color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .ficha-titulos h2,
+        .ficha-titulos h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-weight: lighter;
+            font-size: 40px;
+            color: #0058B4;
+            margin: 10px 0;
+        }
+
+        /* Mantemos a ficha técnica como estava */
+        .ficha-tecnica {
+            background-color: #FFF;
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+        }
+
+        .ficha-tecnica p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 15px auto;
+            max-width: 700px;
+        }
+
+        .ficha-tecnica strong {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .paragraforeduzido {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://drive.google.com/thumbnail?id=1iZTd5_tOqqVTFtrgbqdKazN1J1Yk-PuE" alt="Logo">
+        </div>
+        <div class="menu-toggle">
+            <i class="bx bx-menu"></i>
+            <i class="bx bx-x" style="display: none;"></i> <!-- Ícone de fechar menu -->
+        </div>
+        <ul>
+            <li><a href="#introducao">Introdução</a></li>
+            <li><a href="#secao1">Tópico 1</a></li>
+            <li><a href="#secao2">Tópico 2</a></li>
+            <li><a href="#secao3">Tópico 3</a></li>
+            <li><a href="#secao4">Tópico 4</a></li>
+            <li><a href="#secao5">Tópico 5</a></li>
+            <li><a href="#secao6">Tópico 6</a></li>
+            <li><a href="#download">Download</a></li>
+            <li><a href="#conclusao">Conclusão</a></li>
+            <li><a href="#referencias">Refs Bibliográficas</a></li>
+        </ul>
+    </div>
+    
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    <!-- Capa do Livro -->
+    <section id="capa-livro" class="capa-livro">
+        <div class="borda superior"></div>
+        <div class="conteudo-capa">
+            <h1 class="titulo-programa">PROGRAMA DE ATUALIZAÇÃO em fundamentos da</h1>
+            <h1 class="titulo-materia">Física - NÍVEL 1</h1>
+            <h2 class="subtitulo-professor">Profª Monica Tais Siqueira D'Amelio Felippe</h2>
+            <h2 class="subtitulo-professor">Prof. Murillo Preto Cardoso Junior</h2>
+        </div>
+        <div class="borda inferior"></div>
+    </section>
+    
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    <section id="titulo" class="titulo-intro">
+        <h1 class="titulo-programa"></h1>
+    </section>
+    <!-- ESPAÇAMENTO -->
+    
+    
+    <!-- Seção Introdução -->
+    <section id="introducao" class="introducao">
+        <!-- Barra Superior -->
+        <div class="barra-superior">
+            <h1 class="titulo-barra">UNIDADE 5 | FORÇAS - LEIS DE NEWTON E FORÇA RESULTANTE</h1>
+        </div>
+    
+        <!-- Conteúdo -->
+        <div class="caixa-texto">
+            <div class="conteudo-centralizado">
+                <h1 class="titulo-introducao">INTRODUÇÃO</h1>
+    
+                <p>
+                    Você já se perguntou por que alguns objetos se movem, outros ficam parados e alguns mudam de direção
+                    de repente? Esses comportamentos não acontecem por acaso. Eles seguem regras muito bem definidas
+                    pela Física. Ao longo desta unidade, vamos conversar sobre o que provoca essas mudanças e o que
+                    mantém um corpo em repouso ou em movimento. Compreender as forças envolvidas em cada situação
+                    do nosso cotidiano pode nos ajudar a interpretar melhor o que acontece ao nosso redor, seja ao empurrar
+                    uma porta, acelerar um carro ou apenas caminhar.
+                </p>
+                <p>
+                    Vamos começar entendendo o que é força, como ela se manifesta e de que maneira ela influencia o
+                    movimento dos corpos. Em seguida, vamos aprofundar nosso conhecimento nas Leis de Newton e no
+                    conceito de força resultante. Não se preocupe com fórmulas complicadas neste momento: nosso foco será
+                    compreender o sentido de cada ideia e como ela se aplica em situações práticas. Prepare seu raciocínio,
+                    sua curiosidade e vamos adiante com calma e clareza.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="secao1" id="secao1">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                1. FORÇAS
+            </h1>
+        </div>
+        <p>
+            Já estudamos os movimentos uniformes e uniformemente variados, sem nos preocuparmos com suas
+            causas. Podemos intuir que, para modificar o deslocamento de um corpo, é necessária uma ação externa.
+            Sem ela, um corpo permaneceria em estado de movimento permanente.
+        </p>
+        <p>
+            A influência externa que atua sobre o corpo é denominada força. Ela é a quantificação da ação de um
+            corpo sobre o outro, uma grandeza física vetorial capaz de alterar o estado de movimento de um corpo,
+            ou mesmo a sua forma, no caso de deformações. A unidade que utilizamos para quantificá-la é o Newton
+            \([N]\), na expressão a seguir é apresentada a equivalência entre a unidade Newton e as unidades das
+            grandezas fundamentais do Sistema Internacional de Unidades (Halliday, 2003).
+        </p>
+        <p>
+            $$ 1 \ N \Rightarrow 1 \ kg \cdot \frac {m}{s^2} $$
+        </p>
+        <p>
+            Consideremos, como exemplo, uma mola em estado natural que esteja fixa em uma das extremidades,
+            como na Figura 1. Se aplicamos uma força na outra extremidade na direção da extremidade fixa a mola
+            irá se deformar reduzindo o seu comprimento, como na Figura 2.
+        </p>
+
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 1</strong>.</span> Mola em estado natural</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765391335/fig1_gnugs3.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A figura apresenta uma mola em seu estado natural, ou seja, sem estar compri
+                mida nem esticada. À esquerda da mola, há um bloco cinza conectado à extremidade da mola, indican
+                do que ela está acoplada a um corpo. A mola aparece com suas espiras uniformemente espaçadas. A
+                extremidade direita da mola está presa a um suporte fixo, demonstrando que a mola está entre o bloco
+                e uma parede ou estrutura imóvel. O sistema encontra-se sobre uma superfície horizontal, sugerindo
+                que está em repouso, sem ação de forças externas que modifiquem o comprimento da mola.
+            </p>
+        </section>
+        <br>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 2</strong>.</span> Mola após deformação</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765391402/fig2_dywbu9.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A figura mostra uma mola após ter sido deformada pela ação de uma força
+                externa. Um bloco cinza está conectado à extremidade esquerda da mola, enquanto a outra extremidade
+                da mola está presa a uma parede fixa. A mola aparece comprimida, com suas espiras mais próximas
+                umas das outras em relação ao estado natural. Uma seta apontando para a esquerda, rotulada como
+                "Força F", indica que foi aplicada uma força sobre a extremidade direita da mola, comprimindo-a. O
+                sistema está sobre uma superfície horizontal, e a imagem ilustra claramente a deformação da mola
+                devido à força aplicada.
+            </p>
+        </section>
+        <br>
+        <p>
+            A velocidade de um móvel em movimento uniforme, como na Figura 3, que sofre ação de uma força no
+            mesmo sentido do movimento, irá aumentar gradualmente, o que seria classificado como movimento
+            uniformemente variado acelerado. Porém, se uma força é aplicada no sentido oposto do movimento, a
+            velocidade reduzirá gradualmente até zero, num movimento uniformemente variado retardado - como
+            representado na Figura 4 e 5.
+        </p>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 3</strong>.</span> Movimento Uniforme</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765391504/fig3_kiryuk.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A figura apresenta um esquema simples representando o movimento uniforme.
+                Um corpo esférico, ilustrado com um círculo, está se deslocando sobre uma superfície reta e horizontal.
+                Ao lado direito do corpo, há uma seta apontando para a direita, acompanhada da expressão "velocidade
+                v", indicando que o objeto está em movimento nessa direção.
+            </p>
+        </section>
+        <br>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 4</strong>.</span> Alteração do movimento devido a ação de forças</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765391544/fig4_xfuvrk.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A figura representa a alteração do movimento de um corpo devido à aplicação
+                de uma força. Um objeto esférico se desloca sobre uma superfície reta e horizontal com velocidade
+                representada pela seta à direita, acompanhada da expressão "velocidade v". Simultaneamente, uma
+                segunda seta, localizada à esquerda do objeto, indica a presença de uma força sendo aplicada na mes
+                ma direção do movimento.
+            </p>
+        </section>
+        <br>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 5</strong>.</span> Alteração do movimento devido a ação de forças</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765391544/fig4_xfuvrk.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A figura mostra a alteração do movimento de um corpo devido à aplicação de uma
+                força contrária à sua velocidade. Um objeto esférico desloca-se sobre uma superfície horizontal com veloci
+                dade representada pela seta voltada para a direita, acompanhada da expressão "velocidade v". Simultane
+                amente, uma seta apontando para a esquerda indica a aplicação de uma força oposta ao movimento.
+            </p>
+        </section>
+        <br>
+    </section>
+    <section class="secao2" id="secao2">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                2. CLASSIFICAÇÃO E TIPOS DE FORÇAS
+            </h1>
+        </div>
+        <p>
+            A grandeza vetorial força pode ser classificada em <b>forças de contato</b> ou <b>forças de campo</b> (Marques,
+            2016), clique nos cards para ler:
+        </p>
+        <br><br>
+        <div class="cards-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Forças de<br>
+                        contato
+                    </div>
+                    <div class="flip-card-back">
+                        São aquelas que
+                        agem sobre o
+                        corpo mediante o
+                        contato entre os
+                        corpos, como é o
+                        caso da força de
+                        atrito.
+                    </div>
+                </div>
+            </div>
+        
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        Forças de<br>
+                        campo
+                    </div>
+                    <div class="flip-card-back">
+                        São aquelas que
+                        atuam sobre os
+                        corpos sem que
+                        ocorra contato
+                        entre eles, como
+                        é o caso da força
+                        Peso e das forças
+                        magnéticas.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <p>
+            Entretanto, ainda podemos definir uma força quanto ao seu tipo (Alonso, 2015), clique nos botões para ler:
+        </p>
+        <br>
+        <!-- Acordeons -->
+        <div class="acordeon-container">
+            <!-- Primeiro acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        FORÇA PESO \((P)\)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Força que atua em todos os corpos, sendo exercida pelo campo gravitacional da Terra.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        FORÇA ELÁSTICA \((F_{el})\)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Força que atua sobre corpos elásticos (como a mola), que o deforma, ou seja, o corpo
+                        comprime ou estica.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        FORÇA GRAVITACIONAL \((F)\)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Força de atração entre dois corpos no universo.
+                    </p>
+                </div>
+            </div>
+        
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        FORÇA DE ATRITO \((F_{at})\)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Força exercida entre duas superfícies em contato.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        FORÇA MAGNÉTICA \((F_m)\)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Força de atração ou repulsa entre corpos magnéticos ou magnetizados.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        FORÇA NORMAL \((N)\)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Esse tipo de força é exercida perpendicularmente por um corpo sobre uma superfície,
+                        podendo ser chamada de "força de apoio".
+                    </p>
+                </div>
+            </div>
+
+            <!-- Segundo acordeon -->
+            <div class="acordeon">
+                <div class="acordeon-headerc">
+                    <span class="titulo-header">
+                        FORÇA CENTRÍPETA \((F_{cp})\)
+                    </span>
+                    <i class="bx bx-chevron-down acordeon-icon"></i>
+                </div>
+                <div class="acordeon-contentc">
+                    <p style="text-align: justify;">
+                        Força atuante em corpos de trajetória circular.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p>
+            Vale ressaltar que existem outros tipos de força, como <b>empuxo</b>, <b>tensão</b> e <b>sustentação</b>.
+        </p>
+    </section>
+    <section class="secao1" id="secao3">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                3. FORÇA COMO UMA GRANDEZA VETORIAL
+            </h1>
+        </div>
+        <p>
+            Por ser uma grandeza vetorial, a força recebe um tratamento vetorial. Dessa forma, é necessário considerar
+            as seguintes relações (Halliday, 2003), deslize pelas setas para ler:
+        </p>
+        <br>
+        <section class="slider-texto-container tema-roxo" data-slider-id="2">
+            <!-- conteúdo do slider 2 -->
+            <div class="slider-texto-wrapper">
+                <div class="slide-texto ativo">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        A força apresenta módulo, valor numérico que representa sua intensidade, e medida no
+                        sistema internacional pela unidade Newton \([N]\);
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        Também apresenta direção, que determina se ela atua horizontalmente, verticalmente ou
+                        obliquamente (com a inclinação definida por um ângulo Ø);
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        E apresenta, ainda, sentido, que se estabelece de acordo com a direção, se ela for horizontal,
+                        o sentido pode ser direito ou esquerdo e, se a direção for vertical, o sentido alterna-se para
+                        cima ou para baixo.
+                    </p>
+                </div>
+            </div>
+        
+            <button class="seta-texto esquerda" onclick="mudarSlideTexto(this, -1)">&#10094;</button>
+            <button class="seta-texto direita" onclick="mudarSlideTexto(this, 1)">&#10095;</button>
+        
+            <div class="slider-texto-indicadores">
+            </div>
+        </section>
+        <br>
+        <p>
+            Observe a Figura 6.
+        </p>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 6</strong>.</span> Forças atuantes em um ponto material</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 50%;" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765396413/fig6_m80l9e.png"
+                    alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A figura apresenta um ponto material indicado por um círculo azul sobre o qual atuam diversas
+                forças vetoriais representadas por setas em diferentes direções. A força F1 aponta verticalmente para cima, enquanto F5
+                aponta verticalmente para baixo. A força F3 está direcionada horizontalmente para a direita, em oposição à força F4, que
+                aponta horizontalmente para a esquerda. A força F2 forma um ângulo de 45 graus com a horizontal direita, posicionando-se
+                entre F1 e F3.
+            </p>
+        </section>
+        <br>
+        <p>
+            Na Figura 6, podemos observar que as forças (deslize pelas setas para ler):
+        </p>
+        <br>
+        <section class="slider-texto-container tema-roxo" data-slider-id="2">
+            <!-- conteúdo do slider 2 -->
+            <div class="slider-texto-wrapper">
+                <div class="slide-texto ativo">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        \(\overrightarrow{F_1}\) e \(\overrightarrow{F_4}\) são forças que atuam na direção horizontal, com sentidos opostos
+                        (\(\overrightarrow{F_1}\) atua no sentido direito, enquanto \(\overrightarrow{F_4}\) atua no sentido esquerdo);
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        \(\overrightarrow{F_3}\) e \(\overrightarrow{F_5}\) atuam na direção vertical, com sentidos opostos
+                        (\(\overrightarrow{F_3}\) com sentido para cima e \(\overrightarrow{F_5}\) com sentido para baixo);
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        e \(\overrightarrow{F_2}\) é uma força que atua obliquamente na direção e sentido do ângulo \(Ø = 45^\circ\).
+                    </p>
+                </div>
+            </div>
+        
+            <button class="seta-texto esquerda" onclick="mudarSlideTexto(this, -1)">&#10094;</button>
+            <button class="seta-texto direita" onclick="mudarSlideTexto(this, 1)">&#10095;</button>
+        
+            <div class="slider-texto-indicadores">
+            </div>
+        </section>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                3.1 PROJEÇÃO DE UMA FORÇA SOBRE OS EIXOS ORTOGONAIS
+            </h1>
+        </div>
+        <p>
+            No caso, de forças que atuam obliquamente, é necessário determinar as projeções desta força sobre o
+            eixo horizontal e vertical. Esse procedimento nos auxiliará a obter a Força Resultante em um sistema de
+            forças. Consideremos uma força oblíqua representada na Figura 7.
+        </p>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 7</strong>.</span> Força oblíqua</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 60%;"
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765397788/fig7_sxffhw.png" alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A imagem apresenta uma força oblíqua representada por uma seta inclinada que parte
+                de um corpo localizado no ponto de origem e forma um ângulo com a linha horizontal. Essa força inclinada é
+                decomposta em duas partes: uma aponta para a direita, ao longo da linha horizontal, e a outra aponta para cima,
+                ao longo da linha vertical. A linha horizontal está identificada como eixo x, e a linha vertical como eixo y. O ângulo
+                formado entre a força inclinada e o eixo horizontal está marcado como teta, que é a letra grega usada para indicar
+                ângulos. As duas setas que compõem a força mostram que ela pode ser analisada separando suas direções: uma
+                parte da força atua no sentido horizontal e a outra no sentido vertical.
+            </p>
+        </section>
+        <br>
+        <p>
+            As forças \(\overrightarrow{F_x}\) e \(\overrightarrow{F_y}\) são chamadas de projeções da força 
+            \(\overrightarrow{F}\) sobre os eixos ortogonais, sendo \(\overrightarrow{F_x}\) a projeção de \(\overrightarrow{F}\)
+            sobre o eixo horizontal (x) e \(\overrightarrow{F_y}\) a projeção de \(\overrightarrow{F}\) sobre o eixo vertical
+            (y) (Marques, 2016).
+        </p>
+
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    Para calcularmos o valor das projeções de uma força sobre os eixos ortogonais,
+                    utilizamos as seguintes relações:
+                </p>
+                <div class="math-wrapper">
+                    <p>
+                        $$
+                        F_x = |\vec{F}|\cdot\cos\theta \qquad
+                        F_y = |\vec{F}|\cdot sen \ \theta \qquad
+                        \cos\theta
+                        $$
+                    </p>
+                </div>
+                <p>
+                    Sendo \(\overrightarrow{F_x}\) a força atuante no eixo horizontal, \(\overrightarrow{F_x}\)
+                    a força atuante no eixo vertical, \(|\vec{F}|\) o módulo da força, \(\cos\theta\) 
+                    é o cosseno do ângulo de direção e \(sen \ \theta\) é o seno do ângulo de direção.
+                </p>
+                <br>
+            
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                3.2 EXERCÍCIO COMENTADO:
+            </h1>
+        </div>
+        
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>1</strong>.
+                    Determine as projeções de uma fora oblíqua de módulo 30 N que atua na direção e no sentido de
+                    \(\theta = 30^\circ\). Dado \( \cos {30}^\circ = \frac{\sqrt{3}}{2} \; \text{ e } \; sen \ 30^\circ = \frac{1}{2}\).
+
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>
+                        Resolução:
+                    </b>
+                </p>
+                <br>
+                <!-- Título fora do container -->
+                <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 8</strong>.</span> Projeção de uma força sobre os eixos coordenados</h3>
+                
+                <!-- Bloco de Figura (sem borda e fundo) -->
+                <section class="bloco-figura-simples tema-verde" style="border: none;">
+                    <!-- Imagem -->
+                    <div class="figura-container">
+                        <img class="zoomable" style="max-width: 80%; width: 60%;"
+                            src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765399836/fig8_ilphje.png" alt="">
+                    </div>
+                    <br>
+                    <!-- Fonte abaixo da imagem -->
+                    <p class="fonte-imagem">
+                        <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+                    </p>
+                
+                    <!-- Descrição com largura maior -->
+                    <p class="descricao-figura-larga">
+                        <strong>Descrição da tabela:</strong>
+                        A imagem mostra a representação de uma força inclinada de trinta newtons que atua a
+                        partir de um ponto de origem e forma um ângulo de trinta graus com a linha horizontal. Essa força está dividida
+                        em duas componentes: Fx apontando para a direita, ao longo da direção horizontal, e outra Fy apontando para
+                        cima, ao longo da direção vertical. A linha horizontal é identificada como eixo x, e a linha vertical como eixo y. As
+                        componentes horizontal e vertical ainda são desconhecidas, indicadas por interrogações.
+                    </p>
+                </section>
+                <br>
+                <p>
+                    $$ \large F_x = 30 \cdot \cos {30}^\circ \qquad F_x = 30 \cdot \frac {\sqrt{3}}{2} \; = 15\sqrt{3} \ {N}$$
+                </p>
+                <p>
+                    $$ \large F_y = 30 \cdot sen {30}^\circ \qquad F_y = 30 \cdot \frac {1}{2} \; = 15 \ {N}$$
+                </p><br>
+                <p>
+                    <b>Resposta:</b> As projeções da força \(\overrightarrow{F}\) são \( F_x = 26,1 \ N\) e 
+                    \( F_y = 30 \cdot 0,5 = 15 \ N\). Elas indicam que a força \(\overrightarrow{F}\) atua com intensidade de 
+                    26,1 N na direção horizontal e sentido direito e 15 N na direção vertical com sentido para cima.
+                </p>
+                <p>
+                    Note que, se realizarmos a soma direta entre os valores das projeções da força \(\overrightarrow{F}\),
+                    o valor não será o mesmo que o valor do módulo de \(\overrightarrow{F}\):
+                </p>
+                <p>
+                    $$ F_x + F+y = 15{\sqrt{3}} \; + 15 \cong \; 41,1 \; \neq 30 $$
+                </p>
+                <p>
+                    Isto acontece, pois quando trabalhamos com forças a soma a ser realizada é uma soma vetorial:
+                </p>
+                <br>
+                <!-- Título fora do container -->
+                <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 9</strong>.</span> Soma Vetorial</h3>
+                
+                <!-- Bloco de Figura (sem borda e fundo) -->
+                <section class="bloco-figura-simples tema-verde" style="border: none;">
+                    <!-- Imagem -->
+                    <div class="figura-container">
+                        <img class="zoomable" style="max-width: 80%; width: 60%;"
+                            src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765400668/fig9_fpug0l.png" alt="">
+                    </div>
+                    <br>
+                    <!-- Fonte abaixo da imagem -->
+                    <p class="fonte-imagem">
+                        <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+                    </p>
+                
+                    <!-- Descrição com largura maior -->
+                    <p class="descricao-figura-larga">
+                        <strong>Descrição da tabela:</strong>
+                        A imagem mostra um triângulo retângulo utilizado para representar a soma vetorial de
+                        forças. A hipotenusa, ou seja, o lado inclinado do triângulo, representa uma força resultante com intensidade
+                        de trinta Newtons, formando um ângulo de trinta graus com a base horizontal. A base do triângulo indica a
+                        componente horizontal dessa força, com valor de quinze raiz de três Newtons, enquanto o lado vertical representa
+                        a componente vertical, com valor de quinze Newtons.
+                    </p>
+                </section>
+                <br>
+                <p>
+                    Na Figura 9, está representada a soma vetorial das projeções da força \(\overrightarrow{F}\). As projeções
+                    e a força formam um triângulo retângulo, de forma que:
+                </p>
+                <p>$$ \overrightarrow{|F|^2} = \overrightarrow{|F_x|^2} + \overrightarrow{|F_y|^2} \ (Teorema \ de \ Pitágoras)$$</p>
+                <p>$$ 30^2 = (15{\sqrt{3}} \;)^2 + 15^2 $$</p>
+                <p>$$ 900 = 225 \cdot 3 + 225 $$</p>
+                <p>$$ 900 = 675 + 225 $$</p>
+                <p>$$ 900 = 900 $$</p>
+            </div>
+        </div>
+    </section>
+    <section class="secao2" id="secao4">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                4. FORÇA RESULTANTE
+            </h1>
+        </div>
+        <p>
+            Percebe-se que os corpos podem estar sob a ação de diversos tipos de força ao mesmo tempo, como
+            representado na Figura 10.
+        </p>
+        <br>
+        <!-- Título fora do container -->
+        <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 10</strong>.</span> Forças atuantes em um corpo</h3>
+        
+        <!-- Bloco de Figura (sem borda e fundo) -->
+        <section class="bloco-figura-simples tema-verde" style="border: none;">
+            <!-- Imagem -->
+            <div class="figura-container">
+                <img class="zoomable" style="max-width: 80%; width: 60%;"
+                    src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765401333/fig10_bnfa2l.png" alt="">
+            </div>
+            <br>
+            <!-- Fonte abaixo da imagem -->
+            <p class="fonte-imagem">
+                <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+            </p>
+        
+            <!-- Descrição com largura maior -->
+            <p class="descricao-figura-larga">
+                <strong>Descrição da tabela:</strong>
+                A imagem apresenta um esquema com as principais forças que atuam sobre um corpo em repouso
+                ou em movimento sobre uma superfície. No centro da figura, há um bloco representando o corpo, e quatro setas indicam
+                as forças que agem sobre ele. Uma seta voltada para cima indica a força normal, que é a reação da superfície ao peso do
+                corpo. Uma seta voltada para baixo representa a força peso, correspondente à atração gravitacional exercida pela Terra.
+                À direita do bloco, uma seta aponta para a direita e representa uma força F aplicada ao corpo. À esquerda, outra seta
+                aponta em sentido oposto e representa a força de atrito, que age no sentido contrário ao do movimento ou da tendência
+                de movimento.
+            </p>
+        </section>
+        <br>
+        <p>
+            Na Figura 9, há um corpo sendo submetido à ação de 4 tipos de força: a força \(F\), que 
+            atua horizontalmente com sentido direito; a força de atrito \(F_{at}\) que atua horizontalmente 
+            no sentido esquerdo; a força Peso \(P\) que atua na direção do campo gravitacional da Terra (baixo) e a força Normal N que é perpendicular à
+            superfície de apoio (cima) (Evangelista, 2020).
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    A Força Resultante é a soma de todas as forças atuante sobre o corpo, ou seja:
+                </p>
+                <div class="math-wrapper">
+                    <p>
+                        \[
+                        \vec{F}_R = \sum_{n=1}^{n} 
+                        \qquad
+                        \vec{F}_n = \vec{F}_1 + \vec{F}_2 + \vec{F}_3 + \vec{F}_4 + \cdots  \vec{F}_n
+                        \]
+                    </p>
+                    <p>
+                        Em que:
+                    </p>
+                </div>
+                <p>
+                    \[ \large
+                     \sum_{n=1}^{n}
+                    \quad
+                    {representa \ a \ soma \ de \ todas \ as \ forças \ que \ atuam \ sobre \ o \ corpo}
+                    \]
+                </p>
+                <br>
+        
+            </div>
+        </div>
+        <br>
+        <p>
+            Entretanto, a soma de forças é uma soma vetorial (Evangelista, 2020). Para realizar esse tipo de soma,
+            deve-se estar atento às seguintes relações (clique nas setas para ler):
+        </p>
+        <br>
+        <section class="slider-texto-container tema-roxo" data-slider-id="2">
+            <!-- conteúdo do slider 2 -->
+            <div class="slider-texto-wrapper">
+                <div class="slide-texto ativo">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        Forças que atuam na mesma direção podem ser somadas diretamente considerando o
+                        sentido em que atuam;
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        Por convenção, as forças que agem no sentido direito ou para cima têm valores positivos, e
+                        forças que agem no sentido esquerdo ou para baixo têm valores negativos;
+                    </p>
+                </div>
+                <div class="slide-texto">
+                    <p class="conteudo-texto" style="text-align: center !important;">
+                        Forças que agem obliquamente devem ser projetadas sobre os eixos ortogonais.
+                    </p>
+                </div>
+            </div>
+        
+            <button class="seta-texto esquerda" onclick="mudarSlideTexto(this, -1)">&#10094;</button>
+            <button class="seta-texto direita" onclick="mudarSlideTexto(this, 1)">&#10095;</button>
+        
+            <div class="slider-texto-indicadores">
+            </div>
+        </section>
+        <br>
+        <p>
+            Desta forma, podemos definir que a força resultante pode ser expressa por:
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                
+                </p>
+                <div class="math-wrapper">
+                    <p>
+                        \(
+                        \vec{F}_R = \vec{F}_{Rx}
+                         = 
+                        \sum \vec{F}_x
+                       = 
+                        \vec{F}_{1x} + \vec{F}_{2x} + \vec{F}_{3x} + \cdots
+                        
+                        \vec{F}_{Ry}
+                         = 
+                        \sum \vec{F}_y
+                         = 
+                        \vec{F}_{1y} + \vec{F}_{2y} + \vec{F}_{3y} + \cdots
+                        \)
+                    </p>
+                    <br>
+                    <p>
+                        Em que:
+                    </p><br>
+                    <p>
+                        \( \Large \sum \quad  \vec{F}_x \) <i>representa a soma das forças que atuam no eixo horizontal</i>
+                    </p><br>
+                    <p>
+                        \( \Large \sum \quad \vec{F}_y \) <i>representa a soma das forças que atuam no eixo vertical</i>
+                    </p>
+                    <br>
+                    <p>
+                        E o módulo da força resultante pode ser obtido pela expressão:
+                    </p>
+                    <p>
+                        $$ \overrightarrow{|F_R|}^2 = \overrightarrow{|F_{Rx}|}^2 + \overrightarrow{|F_{Ry}|}^2 $$
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </section>
+    <section class="secao1" id="secao5">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                5. LEIS DE NEWTON
+            </h1>
+        </div>
+        <p>
+            Uma das principais contribuições de Isaac Newton para o mundo foi a explicação metódica do movimento dos
+            corpos, pois a Mecânica Newtoniana é capaz de prever trajetórias de corpos em movimento (Gouveia, 2019).
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    As leis de Newton descrevem a dinâmica dos corpos, a área da física mecânica
+                    responsável por estudar o movimento dos corpos e dos agentes físicos que produzem ou
+                    modificam o movimento. Como vimos na introdução desta unidade, o agente responsável
+                    por modificar o movimento dos corpos é grandeza vetorial força, a qual apresenta unidade
+                    no S.I igual a \(Kg \cdot \frac {m}{s^2} \), posteriormente modificada para \(N\) (Newton).
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.1 PRIMEIRA LEI DE NEWTON (INÉRCIA)
+            </h1>
+        </div>
+        <p>
+            Um ponto material é chamado isolado quando não existem forças atuando sobre ele ou quando as forças
+            atuantes têm resultante nula.
+        </p>
+        <br><br>
+        <div class="caixa-dupla">
+            <div class="caixa-conteudo">
+                A <b>primeira Lei de Newton</b> ou <b>Princípio da Inércia</b> estabelece que um ponto ma
+                terial isolado permanece em seu estado inicial, seja em repouso ou em movimento
+                retilíneo uniforme.
+            </div>
+        </div>
+        <br><br>
+        <p>
+            Isso quer dizer que um ponto material isolado está em <b>equilíbrio estático (repouso)</b> ou em <b>equilíbrio
+            dinâmico (movimento retilíneo uniforme).</b> Ao se aplicar uma força sobre esse ponto material, produz
+            se nele uma variação de velocidade, seja para romper o equilíbrio estático, seja para romper o equilíbrio
+            dinâmico (Goveia, 2019).
+        </p>
+        <p>
+            Desta forma, podemos definir o conceito dinâmico de <b>força</b> como <b>o agente que produz variação de
+            velocidade e, portanto, aceleração.</b>
+        </p>
+        <p>
+            A Inércia estabelece que:
+        </p>
+        <ul class="lista-compacta">
+            <li> Um corpo em repouso tem a tendência natural de permanecer em repouso, e </li>
+            <li> Um corpo em movimento retilíneo uniforme tem a tendência natural de manter sua velocidade
+                constante. 
+            </li>
+        </ul>
+        <p>
+            Consideremos a seguinte situação: estamos no interior de um carro parado em frente a um semáforo.
+            O sinal, então, abre, e o motorista arranca o veículo com grande aceleração. É natural, nesta situação,
+            sentirmos que nosso corpo é arremessado para trás. Na verdade, o que sentimos é a tendência a ficar
+            em repouso. O mesmo acontece quando o veículo freia bruscamente: nesse caso, sentimos como se
+            estivéssemos sendo arremessados para frente, mas é apenas o nosso corpo tendendo a permanecer em
+            movimento (Halliday, 2003).
+        </p>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.2 SEGUNDA LEI DE NEWTON (PRINCÍPIO FUNDAMENTAL DA DINÂMICA)
+            </h1>
+        </div>
+        <p>
+            A lei básica para a análise das causas dos movimentos relaciona as forças aplicadas a um ponto material
+            de massa \(m\) constante às acelerações que são geradas por estas forças (Helerbrock, s.d.).
+        </p>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    Sabendo que \(\vec{F}_R\) é a força resultante das forças aplicadas e \(\vec{a}\)
+                    é a aceleração adquirida, a segunda lei de Newton estabelece: A resultante das forças aplicada a um ponto é igual ao
+                    produto de sua massa pela aceleração adquirida.
+                </p><br>
+                <p>
+                    Em termos matemáticos, temos:
+                </p>
+                <p>
+                    $$ \vec{F}_R  = m \cdot \vec{a} $$
+                </p><br>
+                <p>
+                    Considerando os valores escalares de \(\vec{F}_R\) e \(\vec{a}\), temos:
+                </p>
+                
+                <p>
+                    $$ {F}_R = m \cdot {a} $$
+                </p>
+                <br>
+                <p>
+                    Isso significa que a força resultante produz uma aceleração com a mesma direção e senti
+                    do, e a intensidade delas é proporcional.
+                </p>
+                <p>
+                    Como no sistema internacional, a massa é dada em kg e a aceleração em m/s², podemos
+                    definir que a unidade de força é dada por:
+                </p><br>
+                <p>
+                    $$ {F}_R = m \cdot a = [kg \cdot \frac {m}{s^2}] = \ N \ (Newton)$$
+                </p>
+            </div>
+        </div>
+        <br>
+        <p>
+            Newton contribuiu muito para a Física, vamos fazer um exercício aplicando a segunda Lei de Newton?
+            Assista a esse vídeo!
+        </p>
+        <br>
+        <div class="video-play-wrapper">
+            <div class="video-play-btn" data-video="https://drive.google.com/file/d/1AYJA3TCWFmAYEvbigOm7Y5cOE45Q18gG/preview"
+                onclick="openVideoModal(this)">
+                <i class='bx bx-play'></i>
+            </div>
+            <div class="video-play-text">Clique para assistir</div>
+        </div>
+        
+        </div>
+        <!-- Modal com o vídeo -->
+        <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+            <div class="video-content" onclick="event.stopPropagation()">
+                <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.3 EXERCÍCIOS COMENTADOS
+            </h1>
+        </div>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>1</strong>.
+                    Um corpo de massa 50 kg está sob a ação de uma força de 200 N. Calcule o valor da aceleração
+                    adquirida pelo corpo.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                    Para resolver esse tipo de situação, utilizamos a segunda Lei de Newton, que relaciona a
+                    força resultante \(\vec{F}_R\), a massa do corpo \(m\) e a aceleração \(a\). A fórmula é:
+                </p>
+                <br>
+                <p>
+                    $$ {F}_R = m \cdot {a} $$
+                </p>
+                <br>
+                <p>
+                    Sabemos que:
+                </p>
+                <p>
+                    $$ {F}_R = 200N $$
+                </p>
+                <p>
+                    $$ {m} = 50kg $$
+                </p>
+                <br>
+                <p>
+                    Substituindo os valores na fórmula:
+                </p>
+                <p>
+                    $$  200 = 50 \cdot a  $$
+                </p>
+                <br>
+                <p>
+                    Agora, isolamos a aceleração:
+                </p>
+                <p>
+                    $$ a = \frac {200}{50} $$
+                </p>
+                <p>
+                    $$ a = 4 \ {m/s}^2$$
+                </p>
+                <br>
+                <p>
+                    <b>
+                        Resposta:
+                    </b> O corpo adquire uma aceleração de \(4 \ {m/s}^2\) sob a ação da força aplicada.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>2</strong>.
+                    Se um corpo apresenta massa de 60 kg e está sob a ação de uma aceleração escalar de \(-2 \ {m/s}^2\)
+                    força que atua no corpo é igual a:
+                </p>
+                
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                    Este exercício também pode ser resolvido com a segunda Lei de Newton, que relaciona a
+                    força resultante com a massa e a aceleração:
+                </p>
+                <br>
+                <p>$$ {F}_R = m \cdot a $$</p>
+                <p>
+                    Sabemos que:
+                </p>
+                <p class="paragrafo-seta">
+                    \(m = 30kg\)
+                </p>
+                <p class="paragrafo-seta">
+                    \(a = -2 \ {m/s}^2\)
+                </p>
+                <p>
+                    (o sinal negativo indica que a aceleração está no sentido oposto ao do movimento)
+                </p>
+                <p>
+                    Substituindo os valores:
+                </p>
+                <p>
+                    $$ {F}_R = 60 \cdot (-2)$$
+                </p>
+                <p>
+                    $$ {F}_R = -120 \ N$$
+                </p>
+                <br>
+                <p>
+                    O valor negativo mostra que a força atua no sentido contrário ao da trajetória do corpo.
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A força resultante tem módulo 120 N, atuando em sentido oposto ao movimento.
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.4 FORÇA PESO
+            </h1>
+        </div>
+        <p>
+            A <b>Força Peso</b> é a força de atração que o campo gravitacional da Terra exerce sobre os corpos. Conforme
+            a segunda lei de Newton, podemos estabelecer que a força peso é dada pela massa do corpo vezes a
+            aceleração desenvolvida pela gravidade (Helerbrock. s.d.):
+        </p>
+        <p>
+            $$ P = m \cdot g$$
+        </p>
+        <p>
+            Em que:
+        </p>
+        <br>
+        <div class="lista-wrapper">
+            <ul class="lista-compacta">
+                <li>\(P\) é a força Peso em N</li>
+                <li>\(m\) é massa em Kg</li>
+                <li>\(g\) é a gravidade da Terra em m/s².</li>
+            </ul>
+        </div>
+        <br>
+        <p>
+            Como a ação gravitacional ocorre de forma a atrair os corpos para o centro da Terra, definimos que a força
+            Peso é uma força vertical com sentido para baixo.
+        </p>
+        <p>
+            Contudo, o Peso de um corpo varia de um local para outro, pois a ação da gravidade sobre a superfície 
+            terrestre não é constante. Sabe-se que a ação gravitacional aumenta da linha do equador em direção 
+            aos polos terrestres. Todavia, é normal assumirmos um valor médio da gravidade na superfície terrestre, 
+            sendo este \(g = 9,81 \ {m/s}^2\) (Marques, 2016)
+        </p>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.5 EXERCÍCIOS COMENTADOS
+            </h1>
+        </div>
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>1</strong>.
+                    Um corpo de massa \(50{kg}\) está situado em uma localização geográfica na superfície terrestre onde a
+                    aceleração da gravidade local é \(9,8{m/s}^2\). Qual o peso desse corpo?
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                    Neste caso, o exercício trata do peso, que é uma força gravitacional com que a Terra atrai
+                    um corpo. A fórmula usada é:
+                </p>
+                <br>
+                <p>
+                    $$ P = m \cdot {g} $$
+                </p>
+                <br>
+                <p>
+                    Onde:
+                </p>
+                <p class="paragrafo-seta">
+                    \(P\) é o peso (em newtons),
+                </p>
+                <p class="paragrafo-seta">
+                    \(m\) é a massa (em quilogramas),
+                </p>
+                <p class="paragrafo-seta">
+                    \(g\) é a aceleração da gravidade (em \({m/s}^2\)).
+                </p>
+                <br>
+                <p>
+                    Sabemos que:
+                </p>
+                <p class="paragrafo-seta">
+                    \(m = 50kg\) 
+                </p>
+                <p class="paragrafo-seta">
+                    \(g = 9,8 m/s^2\)
+                </p>
+                <br>
+                <p>
+                    Aplicando os valores:
+                </p>
+                <p class="paragrafo-seta">
+                    \(P = 50 \cdot 9,8\)
+                </p>
+                <p class="paragrafo-seta">
+                    \(P = 490 \ N \)
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    o peso do corpo é igual a 490 N.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>2</strong>.
+                    Considerando o mesmo corpo do exemplo anterior, mas agora situado em uma localização geográfica
+                    na qual seu Peso é igual a 500 N, determine o valor da gravidade local.
+                </p>
+        
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                    Neste caso, conhecemos o peso do corpo e sua massa, mas não sabemos o valor da
+                    aceleração da gravidade. Vamos usar a fórmula:
+                </p>
+                <br>
+                <p>
+                    $$ P = m \cdot {g} $$
+                </p>
+                <br>
+                <p>
+                    Onde:
+                </p>
+                <p class="paragrafo-seta">
+                    \(P\) é o peso do corpo (força, em newtons),
+                </p>
+                <p class="paragrafo-seta">
+                    \(m\) é a massa (em kg),
+                </p>
+                <p class="paragrafo-seta">
+                    \(g\) é a aceleração da gravidade (em \({m/s}^2\)).
+                </p>
+                <br>
+                <p>
+                    Sabemos que:
+                </p>
+                <p class="paragrafo-seta">
+                    \(P = 500 \ N\)
+                </p>
+                <p class="paragrafo-seta">
+                    \(m = 50{kg}\)
+                </p>
+                <br>
+                <p>
+                    Substituindo na fórmula:
+                </p>
+                <p>$$ 500 = 50 \cdot g $$</p>
+                <br>
+                <p>
+                    Agora, isolamos o \(g\):
+                </p>
+                <p>
+                    $$ g = \frac{500}{50} = 10 \ {m/s}^2 $$
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    a gravidade local apresenta módulo igual a \(10 \ {m/s}^2\)
+                </p>
+            </div>
+        </div>
+        <br>
+        <div class="faixa-verde">
+            <h1 class="titulo-secao" style="font-size: 22px !important;">
+                5.6 TERCEIRA LEI DE NEWTON (PRINCÍPIO DA AÇÃO E REAÇÃO)
+            </h1>
+        </div>
+        <p>
+            Quando dois corpos interagem, as forças exercidas são mútuas: se tomarmos dois corpos (A e B), a força
+            aplicada pelo corpo A em B tem a mesma intensidade que a força aplicada de B em A. Em outras palavras,
+            ao aplicarmos uma força sobre um certo corpo (ação), recebemos desse corpo a mesma força (reação), com
+            mesma intensidade e direção, porém com sentido oposto (Terra, 2009). Como representado na Figura 11.
+        </p>
+                <br>
+                <!-- Título fora do container -->
+                <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 11</strong>.</span> Ação e Reação
+                </h3>
+                
+                <!-- Bloco de Figura (sem borda e fundo) -->
+                <section class="bloco-figura-simples tema-verde" style="border: none;">
+                    <!-- Imagem -->
+                    <div class="figura-container">
+                        <img class="zoomable" style="max-width: 80%; width: 60%;"
+                            src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765459881/fig11_v9brio.png" alt="">
+                    </div>
+                    <br>
+                    <!-- Fonte abaixo da imagem -->
+                    <p class="fonte-imagem">
+                        <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+                    </p>
+                
+                    <!-- Descrição com largura maior -->
+                    <p class="descricao-figura-larga">
+                        <strong>Descrição da tabela:</strong>
+                        A imagem ilustra o princípio da ação e reação, descrito pela terceira lei de Newton. Nela, dois blo
+                        cos estão em contato: o bloco A, menor, está à esquerda, e o bloco B, maior, à direita. O bloco B exerce uma força sobre
+                        o bloco A para a esquerda, indicada por uma seta com a sigla "\(F_B\)". Em contrapartida, o bloco A exerce uma força sobre o
+                        bloco B para a direita, indicada por uma seta com a sigla "\(F_A\)". As forças estão representadas com o mesmo módulo e direções opostas, evidenciando que toda ação provoca uma reação de igual intensidade, mas em sentido contrário. A imagem
+                        reforça que essas forças não se anulam, pois atuam em corpos diferentes.
+                    </p>
+                </section>
+                <br><br>
+                <div class="caixa-dupla">
+                    <div class="caixa-conteudo">
+                        O princípio da ação e reação enunciado por Newton está descrito a seguir:<br><br>
+                        A toda ação há sempre uma reação oposta e de igual intensidade: as ações são
+                        mútuas de dois corpos um sobre o outro são sempre iguais e dirigidas em sentidos
+                        opostos.
+                    </div>
+                </div>
+                <br><br>
+                <p>
+                    <b>Exemplo:</b>
+                </p>
+                <p>
+                    Uma pedra de peso P está sobre uma mesa. A pedra exerce uma força 
+                    \(F = P\) sobre a mesa, e a mesa exerce uma força \(F = -P\) sobre a pedra. Veja a figura 12.
+                </p>
+                <br>
+                <!-- Título fora do container -->
+                <h3 class="titulo-figura-central"><span class="figura"><strong>Figura 12</strong>.</span> Exemplos de Ação e Reação
+                </h3>
+                
+                <!-- Bloco de Figura (sem borda e fundo) -->
+                <section class="bloco-figura-simples tema-verde" style="border: none;">
+                    <!-- Imagem -->
+                    <div class="figura-container">
+                        <img class="zoomable" style="max-width: 80%; width: 50%;"
+                            src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765460043/fig12_sexwgh.png" alt="">
+                    </div>
+                    <br>
+                    <!-- Fonte abaixo da imagem -->
+                    <p class="fonte-imagem">
+                        <strong><i>Fonte</strong>: Elaborada pelo autor.</i>
+                    </p>
+                
+                    <!-- Descrição com largura maior -->
+                    <p class="descricao-figura-larga">
+                        <strong>Descrição da tabela:</strong>
+                        Sobre uma mesa está apoiada uma pedra. A seta voltada para baixo, identificada pela letra "P",
+                        representa o peso da pedra - ou seja, a força com que a pedra pressiona a superfície da mesa devido à gravidade. Em
+                        resposta, a mesa exerce uma força de reação de mesma intensidade, mas em sentido contrário, representada pela seta
+                        para cima com o rótulo -"P". Essa força é a reação ao peso da pedra.
+                    </p>
+                </section>
+                <br>
+                <p>
+                    Importante ressaltarmos que o princípio da Ação e Reação não prevê que as forças se anulem, pois elas
+                    não atuam no mesmo corpo.
+                </p>
+                <p>
+                    Para ficar expert nesse assunto, assista ao vídeo para identificar as forças de um corpo e aplicar a segunda
+                    Lei de Newton.
+                </p>
+                <br>
+                <div class="video-play-wrapper">
+                    <div class="video-play-btn" data-video="https://drive.google.com/file/d/1gAAftGJcM2Ph3XBiAz5hHa71a9YqyZ0T/preview" onclick="openVideoModal(this)">
+                        <i class='bx bx-play'></i>
+                    </div>
+                    <div class="video-play-text">Clique para assistir</div>
+                </div>
+                
+                </div>
+                <!-- Modal com o vídeo -->
+                <div id="videoModal" class="video-modal" onclick="closeVideoModal()">
+                    <div class="video-content" onclick="event.stopPropagation()">
+                        <i class="bx bxs-x-circle close-btn" onclick="closeVideoModal()"></i>
+                        <iframe id="videoIframe" width="800" height="450" src="" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <br>
+    </section>
+    <section class="secao2" id="secao6">
+        <div class="faixa-verde">
+            <h1 class="titulo-secao">
+                6. EXERCÍCIOS RESOLVIDOS
+            </h1>
+        </div>
+        <p>
+            Para resolver um problema, leia o enunciado na íntegra, com concentração, e anote os pontos importantes
+            para então resolvê-los:
+        </p>
+
+        <br>
+        <div class="quadro-problema">
+            <div class="topo">
+                <p>
+                    <strong>1</strong>.
+                    Um corpo está sob a ação de duas forças \(\overrightarrow{F_1}\) e \(\overrightarrow{F_2}\),
+                    ambas atuantes na direção horizontal e com mesmo
+                    sentido módulos são, respectivamente, 20 N e 30 N, como representado abaixo:
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765465410/fig_sn1_ekg8um.png"
+                        alt="">
+                </div>
+                <br>
+                <p>
+                    Calcule o valor da Força Resultante que atua no corpo.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p><strong>Resolução:</strong>
+                    Como \(\overrightarrow{F_1}\) e \(\overrightarrow{F_2}\) estão na mesma direção
+                    (horizontal) e ambas apresentam sentido direito (positivo), temos que:
+                </p>
+                <br>
+                <p>
+                    $$ \overrightarrow{F_R} = \overrightarrow{F_{R_x}} = \overrightarrow{|F_{1_x}|} + \overrightarrow{|F_{2_x}|}$$
+                </p>
+                <p>
+                    $$ \overrightarrow{F_R} = 20 + 30 = 50 \ N $$
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 40%;" src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765466463/fig_sn2_vss92f.png" alt="">
+                </div>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A força resultante que atua no corpo apresenta módulo igual a 50 N e sentido direito.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>2</strong>.
+                    Abaixo, temos a representação de um corpo sob a ação de três forças
+                    \(\overrightarrow{F_1}\), \(\overrightarrow{F_2}\) e \(\overrightarrow{F_3}\),
+                    cujos módulos são, respectivamente, 20 N, 40 N e 10 N.
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-height: 80%; height: 20vh;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765466599/fig_sn3_yxwnye.png" alt="">
+                </div>
+                <br>
+                <p>
+                    Calcule a força resultante do sistema de forças que atua no corpo.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                    As forças \(\overrightarrow{F_1}\), \(\overrightarrow{F_2}\) e \(\overrightarrow{F_3}\),
+                    estão na mesma direção (vertical), sendo que \(\overrightarrow{F_1}\) e \(\overrightarrow{F_3}\) 
+                    estão com sentido para cima (positivo) e \(\overrightarrow{F_2}\) com sentido para baixo (negativo).
+                </p>
+                <br>
+                <p>
+                    $$ \overrightarrow{F_R} = \overrightarrow{F_{R_y}} = \overrightarrow{|F_{1_y}|} - \overrightarrow{|F_{2_y}|} + \overrightarrow{|F_{3_y}|} $$
+                </p>
+                <br>
+                <p>
+                    O sinal negativo é proveniente do sentido da força \(\overrightarrow{F_2}\).
+                </p>
+                <p>
+                    $$ \overrightarrow{F_R} = \overrightarrow{F_{R_y}} = 20 - 40 + 10 = -10 \ N$$
+                </p>
+                <br>
+                <p>
+                    O sinal negativo indica que a força resultante está com sentido baixo, enquanto que o módulo da força
+                    resultante é igual \(10 \ N\).
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-height: 80%; height: 15vh;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765466953/fig_sn4_azoaxs.png" alt="">
+                </div>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A Força Resultante no sistema apresenta módulo igual a 10 N na direção vertical com sentido
+                    para baixo.
+                </p>
+            </div>
+        </div>
+
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>3</strong>.
+                    Um corpo está sujeito a ação de quatro forças, conforme representado abaixo:
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-height: 80%; height: 23vh;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765467058/fig_sn5_wszrux.png" alt="">
+                </div>
+                <br>
+                <p>
+                    Considerando que os módulos das forças \(\overrightarrow{F_1}\), \(\overrightarrow{F_2}\), \(\overrightarrow{F_3}\), e
+                    \(\overrightarrow{F_4}\) são, respectivamente, 50 N, 20 N, 60 N e 20 N.
+                    Calcule a força resultante que atua sobre o corpo.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                    Note que as forças \(\overrightarrow{F_1}\), \(\overrightarrow{F_2}\)
+                    atuam na direção vertical e com sentidos opostos e que \(\overrightarrow{F_3}\) e \(\overrightarrow{F_4}\)
+                    atuam na direção horizontal e com sentidos opostos. Para calcularmos a força resultante que atua no
+                    corpo, primeiramente calcularemos as resultantes em cada eixo ortogonal.
+                </p>
+                <p>
+                    Eixo horizontal (x):
+                </p>
+                <br>
+                <p>
+                    $$ 
+                        \large \overrightarrow{F_{R_x}} = \overrightarrow{|F_{3_x}|}  - \overrightarrow{|F_{4_x}|}
+                    $$
+                </p>
+                <p>
+                    $$
+                        \large \overrightarrow{F_{R_y}} = 50 - 20 = 30 \ N
+                    $$
+                </p>
+                <br>
+                <p>
+                    A resultante em y apresenta módulo de 30 N e sentido cima.
+                </p>
+                <p>
+                    Representação das forças resultantes nos eixos ortogonais
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 35%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765467390/fig_sn6_pbp82j.png" alt="">
+                </div>
+                <br>
+                <p>
+                    O valor da força Resultante \(\overrightarrow{F_R}\) pode ser obtido pela expressão:
+                </p>
+                <br>
+                $$
+                |\overrightarrow{F_R}|^2 = \left|\overrightarrow{F_{R_x}}\right|^2 + \left|\overrightarrow{F_{{R}_y}}\right|^2
+                $$
+                
+                $$
+                |\overrightarrow{F_R}|^2 = 30^2 + 40^2
+                $$
+                
+                $$
+                |\overrightarrow{F_R}|^2 = 900 + 1600
+                $$
+                
+                $$
+                |\overrightarrow{F_R}|^2 = 2500
+                $$
+                
+                $$
+                \overrightarrow{F_R} = \sqrt{2500} = 50 \, N
+                $$
+                <br>
+                <p>
+                    Representação da Força Resultante que atua no corpo
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 40%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765467782/fig_sn7_l4yjaz.png" alt="">
+                </div>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A Força Resultante que atua no corpo é oblíqua e apresenta módulo de 50 N.
+                </p>
+            </div>
+        </div>
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>4</strong>.
+                    Determine a aceleração de um bloco de massa 2 kg que desliza num plano horizontal sem atrito, na
+                    situação representada abaixo:
+                </p>
+                <br>
+                <!-- Imagem do exercício -->
+                <div class="figura-container-reduzida">
+                    <img class="zoomable" style="max-width: 80%; width: 35%;"
+                        src="https://res.cloudinary.com/di4ria1pf/image/upload/v1765467875/fig_sn8_nrtjfp.png" alt="">
+                </div>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                    Força resultante
+                </p>
+                <p>
+                    $$ {F_R} = {F_1} - {F_2} = 10 - 4 = 6 \ N $$
+                </p>
+                <br>
+                <p>
+                    Como
+                </p>
+                <p>
+                    $$ {F_R} = m \cdot a $$
+                </p>
+                <p>
+                    $$ 6 = 2 \cdot a \ ➜ \ \frac {6}{2} = a \ ➜ \ a = 3 \ {m/s}^2 $$
+                </p>
+                <br>
+                <p>
+                    <b>Resposta:</b>
+                    A aceleração tem módulo igual a 3 m/s² e atua no sentido direito.
+                </p>
+            </div>
+        </div>
+
+        <!-- Aplicando a correção nos cálculos problemáticos -->
+        <div class="quadro-problema">
+            <div class="topo">
+                <p><strong>5</strong>.
+                    Um cientista utilizando um dinamômetro (ferramenta de aferição de forças), determina o peso de um
+                    corpo na Terra e na Lua, encontrando os valores \(4,9 \ N\) e \(0,8 \ N\), respectivamente.
+                    Sendo a aceleração da gravidade na superfície da Terra \(9,8 \ {m/s}^2\), determine:
+                </p>
+                <p>
+                    a) A massa do corpo;
+                </p>
+                <p>
+                    b) A aceleração da gravidade na superfície da Lua.
+                </p>
+            </div>
+            <div class="resolucao">
+                <p>
+                    <b>Resolução:</b>
+                </p>
+                <p>
+                    a) O peso é uma força dada por:
+                </p>
+                <p>
+                    \(P = m \cdot g \)
+                </p>
+                <br>
+                <p>
+                    Sabemos que:
+                </p>
+                
+                <p class="paragrafo-seta">
+                    \( P_{Terra} = 4,9N \) 
+                </p>
+                <p class="paragrafo-seta">
+                    \( g_{Terra} = 9,8 \ {m/s}^2 \)
+                </p>
+                <br>
+                <p>
+                    Substituindo na fórmula para encontrar a massa:
+                </p>
+                <p>
+                    $$ 4,9 = m \cdot 9,8 \ ➜ \ \frac {4,9}{9,8} = m \ ➜ \ m = 0,5 \ kg $$
+                </p>
+                <br>
+                <p>
+                    Como a gravidade na Terra é conhecida, basta dividir o peso pelo valor da gravidade para obter a massa.
+                </p>
+                <p>
+                    Agora usamos a mesma fórmula, mas para determinar o valor da gravidade, sabendo o peso na Lua e a
+                    massa do corpo (que não muda).
+                </p>
+                <p>
+                    Sabemos que:
+                </p>
+                <br>
+                <p class="paragrafo-seta">
+                    \( P_{Lua} = 0,8N \)
+                </p>
+                <p class="paragrafo-seta">
+                    \( m = 0,8 \ {kg} \)
+                </p>
+                <br>
+                <p>
+                    Substituindo:
+                </p>
+                <p>
+                    $$ 0,8 = 0,5 \cdot g_{Lua} \ ➜ \ \frac {0,8}{0,5} = g_{Lua} \ ➜ \ g_{Lua} = 1,6 \ {m/s}^2 $$
+                </p>
+                <p>
+                    Como o peso depende da gravidade local, um mesmo corpo terá pesos diferentes na Terra e na Lua.
+                    Aplicamos a mesma fórmula, apenas isolando \(g\).
+                </p>
+                <br>
+                <p>
+                    <b>
+                        Respostas finais:
+                    </b>
+                </p>
+                <p>
+                    a) A massa do corpo é \( 0,5 \ kg \)
+                </p>
+                <p>
+                    b) A aceleração da gravidade na superfície da Lua é \( 1,6 \ {m/s}^2 \)
+                </p>
+            </div>
+        </div>
+        <br>
+    </section>
+    <!-- Seção Conclusão -->
+    <section id="conclusao" class="conclusao">
+        <!-- Conteúdo -->
+        <div class="conteudo-conclusao">
+            <div class="caixa-texto">
+                <h1 class="titulo-conclusao">CONCLUSÃO</h1>
+                <p>
+                    Depois de tudo o que vimos, fica mais simples perceber como a Física está presente nas situações mais
+                    simples e também nas mais complexas. Saber como as forças atuam, como se somam e o que acontece
+                    quando há equilíbrio ou desequilíbrio entre elas nos dá uma base sólida para entender os movimentos e as
+                    interações entre os corpos. As Leis de Newton não são apenas teorias escritas em livros: elas funcionam
+                    como uma ferramenta para interpretar comportamentos físicos que antes poderiam parecer confusos.
+                </p>
+                <p>
+                    Seja ao analisar o impacto de uma colisão, calcular a aceleração de um objeto ou entender por que
+                    sentimos nosso corpo sendo jogado para trás quando o carro acelera, agora você tem mais elementos
+                    para observar com outros olhos. Este conteúdo é um alicerce importante para o estudo de temas futuros
+                    na Física, então vale a pena retomar sempre que surgir uma dúvida. O que começamos aqui é parte
+                    essencial da construção de seu repertório científico.
+                </p>
+            </div>
+        </div>
+        <div id="download" class="download-section">
+            <a href="https://drive.google.com/uc?export=download&id=1FevbMJxf7D2Sh2pN7cCVekMBnipsY-r1" class="download-btn">
+                Baixar PDF <i class="fas fa-download"></i> <!-- Ícone de download -->
+            </a>
+        </div>
+    </section>
+    <!-- Seção Referências-->
+    <section id="referencias" class="referencias">
+        <!-- Conteúdo -->
+        <div class="conteudo-referencias">
+            <div class="caixa-texto">
+                <h1 class="titulo-referencias">REFERÊNCIAS</h1>
+    
+                <p>ALONSO, M.; FINN, E. J. <strong>Física: um Curso Universitário.</strong> 2. ed. São Paulo:
+                    Editora Blucher, 2015. E-book. p.74. ISBN 9788521208327. Disponível na Minha Biblioteca.
+                    Acesso em: 30 ago. 2025.
+                </p>
+    
+                <p>EVANGELISTA, C. R. <strong>Força resultante.</strong> Info Escola, 2020.
+                    Disponível em:
+                    <a href="https://www.infoescola.com/fisica/forca-resultante/" target="_blank">
+                        https://www.infoescola.com/fisica/forca-resultante/
+                    </a>.
+                    Acesso em: 30 ago. 2025.
+                </p>
+    
+                <p>GOUVEIA, R. <strong>Leis de Newton.</strong> Toda Matéria, 2019.
+                    Disponível em:
+                    <a href="https://www.todamateria.com.br/leis-de-newton/" target="_blank">
+                        https://www.todamateria.com.br/leis-de-newton/
+                    </a>.
+                    Acesso em: 30 ago. 2025.
+                </p>
+    
+                <p>HALLIDAY, D.; RESNICK, R.; KRANE, K. S. <strong>Física.</strong> v.1. 5. ed.
+                    Rio de Janeiro: LTC, 2003. E-book. p.15. ISBN 978-85-216-1945-1.
+                    Disponível na Minha Biblioteca. Acesso em: 30 ago. 2025.
+                </p>
+    
+                <p>HELERBROCK, Rafael. <strong>Leis de Newton.</strong> Brasil Escola.
+                    Disponível em:
+                    <a href="https://brasilescola.uol.com.br/fisica/leis-newton.htm" target="_blank">
+                        https://brasilescola.uol.com.br/fisica/leis-newton.htm
+                    </a>.
+                    Acesso em: 30 ago. 2025.
+                </p>
+    
+                <p>MARQUES, F. C. <strong>Física Mecânica.</strong> Barueri: Manole, 2016.
+                    E-book. p.51. ISBN 9788520454398. Disponível na Minha Biblioteca.
+                    Acesso em: 30 ago. 2025.
+                </p>
+    
+                <p>TERRA. <strong>Conheça as três leis de Newton.</strong> 16 mar. 2009. Disponível em:
+                    <a href="https://www.terra.com.br/noticias/educacao/fisica-conheca-as-tres-leis-de-newton,4f4937dabd9ea310VgnCLD200000bbcceb0aRCRD.html"
+                        target="_blank">
+                        https://www.terra.com.br/noticias/educacao/fisica-conheca-as-tres-leis-de-newton...
+                    </a>.
+                    Acesso em: 30 ago. 2025.
+                </p>
+    
+            </div>
+        </div>
+    </section>
+    <!-- Seção com os créditos e ficha técnica -->
+    <section class="ficha-tecnica">
+        <p>CASA NOSSA SENHORA DA PAZ – AÇÃO SOCIAL FRANCISCANA, PROVÍNCIA FRANCISCANA DA <br>
+            IMACULADA CONCEIÇÃO DO BRASIL – ORDEM DOS FRADES MENORES</p>
+        <br>
+        <p><strong>GESTOR DO CENTRO DE INOVAÇÃO E SOLUÇÕES EDUCACIONAIS - CISE</strong>
+            Franklin Portela Correia</p>
+    
+        <p><strong>COORDENADORA DO PROGRAMA DE ATUALIZAÇÃO</strong>
+            Flávia Cristina Franco de Lima Rosa</p>
+    
+        <p><strong>SUPERVISORA EDUCACIONAL</strong>
+            Juliane Cristine Batista</p>
+    
+        <p><strong>DESIGNER INSTRUCIONAL</strong>
+            Ana Angelica Miranda Ramos</p>
+    
+        <p><strong>PROJETO GRÁFICO</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DIAGRAMADORES</strong>
+            Andréa Calegari<br>
+            Lucas Ichimaru Testa</p>
+    
+        <p><strong>DESENVOLVEDOR</strong>
+            Pedro Vinicius Pires de Oliveira Dias</p>
+    
+        <p><strong>PRODUTOR AUDIOVISUAL</strong>
+            Cassio Martins de Carvalho</p>
+    
+        <p><strong>EDIÇÃO DE VÍDEOS</strong>
+            Diogo Lefort Silva<br>
+            Rafael da Silva Oliveira<br>
+            Hugo Henrique Ferreira da Silva</p>
+    
+        <br><br>
+        <p><span class="paragraforeduzido">
+                © 2026 Universidade São Francisco<br>
+                Avenida São Francisco de Assis, 218<br>
+                CEP 12916-900 – Bragança Paulista/SP
+        </p></span>
+    </section>
+    <footer class="footer">
+        <p>Copyright © de Universidade São Francisco</p>
+        <hr class="footer-divider">
+        <span class="fonte-menor">Todos os direitos reservados. Este ebook ou
+            qualquer parte dele não pode ser reproduzido ou usado em quaisquer formas (eletrônico,
+            gravação, fotocópia, distribuição pela Internet ou outros) sem autorização
+            expressa, por escrito, da <strong>Universidade São Francisco.</strong></span>
+    </footer>
+    <script>
+        // Navbar
+            document.querySelector('.menu-toggle').addEventListener('click', () => {
+                const menu = document.querySelector('.navbar ul');
+                const icons = document.querySelectorAll('.menu-toggle i'); // Seleciona ambos os ícones
+
+                menu.classList.toggle('show'); // Alterna a visibilidade do menu
+
+                // Alterna entre o ícone de abrir (menu) e o ícone de fechar (x)
+                icons[0].style.display = icons[0].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de menu
+                icons[1].style.display = icons[1].style.display === 'none' ? 'block' : 'none'; // Mostra ou esconde o ícone de fechar
+            });
+            // Fechar o menu ao clicar em um link
+            const links = document.querySelectorAll('.navbar ul li a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    const menu = document.querySelector('.navbar ul');
+                    const icons = document.querySelectorAll('.menu-toggle i');
+
+                    // Fecha o menu ao clicar no link
+                    menu.classList.remove('show');
+                    icons[0].style.display = 'block'; // Exibe o ícone de menu
+                    icons[1].style.display = 'none'; // Esconde o ícone de fechar
+                });
+            });
+            // Captura o elemento navbar
+            const navbar = document.querySelector('.navbar');
+
+            // Função que altera a opacidade da navbar
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { // Quando o scroll for maior que 50px
+                    navbar.style.backgroundColor = 'rgba(159, 67, 190, 0.8)'; // Opacidade 80%
+                } else {
+                    navbar.style.backgroundColor = '#9F43BE'; // Cor original sem transparência
+                }
+            });
+
+
+            // Seleciona apenas os tabs dentro da div "tema-verde"
+            const temaVerdeContainers = document.querySelectorAll(".tabs-container");
+
+            temaVerdeContainers.forEach(container => {
+                const buttons = container.querySelectorAll(".tab-button");
+                const contents = container.querySelectorAll(".tab-content");
+
+                buttons.forEach(button => {
+                    button.addEventListener("click", () => {
+                        // Remove estado ativo anterior apenas dentro deste container
+                        buttons.forEach(btn => btn.classList.remove("active"));
+                        contents.forEach(content => content.classList.remove("active"));
+
+                        // Adiciona novo estado ativo
+                        button.classList.add("active");
+                        const target = container.querySelector(`#${button.dataset.tab}`);
+                        if (target) target.classList.add("active");
+                    });
+                });
+            });
+            document.querySelectorAll('.slider-texto-container').forEach(initSliderTexto);
+
+                function initSliderTexto(container) {
+                    const slides = container.querySelectorAll('.slide-texto');
+                    const indicatorsContainer = container.querySelector('.slider-texto-indicadores');
+
+                    indicatorsContainer.innerHTML = ''; // Limpa indicadores anteriores
+
+                    // Cria os dots dinamicamente
+                    slides.forEach((_, index) => {
+                        const dot = document.createElement('span');
+                        dot.classList.add('dot-texto');
+                        dot.onclick = () => mostrarSlide(index);
+                        indicatorsContainer.appendChild(dot);
+                    });
+
+                    const dots = container.querySelectorAll('.dot-texto');
+                    let currentIndex = 0;
+
+                    function mostrarSlide(index) {
+                        slides.forEach(slide => slide.classList.remove('ativo'));
+                        dots.forEach(dot => dot.classList.remove('ativo'));
+
+                        currentIndex = (index + slides.length) % slides.length;
+
+                        slides[currentIndex].classList.add('ativo');
+                        dots[currentIndex].classList.add('ativo');
+                    }
+
+                    // Armazena a função no container para chamadas externas
+                    container.mostrarSlideTexto = mostrarSlide;
+                    container.getCurrentIndex = () => currentIndex;
+                    mostrarSlide(0);
+                }
+
+                // Chamado pelos botões de seta
+                function mudarSlideTexto(button, direcao) {
+                    const container = button.closest('.slider-texto-container');
+                    const currentIndex = container.getCurrentIndex();
+                    container.mostrarSlideTexto(currentIndex + direcao);
+                }
+
+                // Chamado pelos dots (não necessário, mas deixado por compatibilidade)
+                function irParaSlideTexto(dot, index) {
+                    const container = dot.closest('.slider-texto-container');
+                    container.mostrarSlideTexto(index);
+                }
+
+            document.querySelectorAll('.acordeon-header, .acordeon-headerb, .acordeon-headerc, .acordeon-headerd').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isVisible = content.style.display === 'block';
+                    content.style.display = isVisible ? 'none' : 'block';
+                    const icon = header.querySelector('.acordeon-icon');
+                    if (icon) {
+                        icon.classList.toggle('bx-chevron-up', !isVisible);
+                        icon.classList.toggle('bx-chevron-down', isVisible);
+                    }
+                });
+            });
+            // Função para abrir o modal com o vídeo
+                function openVideoModal(element) {
+                    var videoModal = document.getElementById('videoModal');
+                    var iframe = document.getElementById('videoIframe');
+
+                    // Obtém o link do vídeo do atributo 'data-video' do ícone de play clicado
+                    var videoLink = element.getAttribute("data-video");
+
+                    // Define o src do iframe com o link do vídeo
+                    iframe.src = videoLink;
+
+                    // Exibe o modal
+                    videoModal.style.display = "flex";
+                }
+
+                // Função para fechar o modal
+                function closeVideoModal() {
+                    var videoModal = document.getElementById('videoModal');
+                    var iframe = document.getElementById('videoIframe');
+
+                    // Limpa o vídeo (remove a URL para evitar que o vídeo continue tocando)
+                    iframe.src = "";
+                    videoModal.style.display = "none";  // Fecha o modal
+                }
+
+                // Impede o fechamento do modal quando o clique for dentro do modal de vídeo
+                document.getElementById('videoModal').addEventListener('click', function (event) {
+                    // Apenas fecha o modal se o clique for fora da área de conteúdo (ou seja, na área preta)
+                    if (event.target === this) {
+                        closeVideoModal();
+                    }
+                });
+
+                // Cria o container lightbox
+                const lightbox = document.createElement("div");
+                lightbox.classList.add("lightbox");
+                document.body.appendChild(lightbox);
+
+                let scale = 1; // nível de zoom
+                let isDragging = false;
+                let startX, startY, translateX = 0, translateY = 0;
+
+                document.querySelectorAll(".zoomable").forEach(img => {
+                    img.addEventListener("click", () => {
+                        const imgClone = document.createElement("img");
+                        imgClone.src = img.src;
+                        imgClone.alt = img.alt;
+                        imgClone.style.objectFit = "contain"; // garante que abre ajustada
+                        imgClone.style.maxWidth = "100%";
+                        imgClone.style.maxHeight = "100%";
+
+                        lightbox.innerHTML = "";
+                        lightbox.appendChild(imgClone);
+                        lightbox.style.display = "flex";
+                        scale = 1;
+                        translateX = translateY = 0;
+                        updateTransform(imgClone);
+
+                        // Mensagem de dica
+                        const hint = document.createElement("div");
+                        hint.classList.add("lightbox-hint");
+                        hint.innerText = "Use a roda do mouse para dar zoom e arraste para mover";
+                        lightbox.appendChild(hint);
+
+                        // Remove a dica após 4s
+                        setTimeout(() => {
+                            if (hint && hint.parentNode) {
+                                hint.remove();
+                            }
+                        }, 4000);
+
+                        // Zoom com scroll
+                        imgClone.addEventListener("wheel", e => {
+                            e.preventDefault();
+                            scale += e.deltaY * -0.001;
+                            scale = Math.min(Math.max(1, scale), 5); // limite de zoom
+                            updateTransform(imgClone);
+                        });
+
+                        // Arrastar imagem
+                        imgClone.addEventListener("mousedown", e => {
+                            isDragging = true;
+                            startX = e.clientX - translateX;
+                            startY = e.clientY - translateY;
+                            lightbox.style.cursor = "grabbing";
+                        });
+
+                        window.addEventListener("mousemove", e => {
+                            if (!isDragging) return;
+                            translateX = e.clientX - startX;
+                            translateY = e.clientY - startY;
+                            updateTransform(imgClone);
+                        });
+
+                        window.addEventListener("mouseup", () => {
+                            isDragging = false;
+                            lightbox.style.cursor = "grab";
+                        });
+                    });
+                });
+
+                // Fecha clicando fora da imagem
+                lightbox.addEventListener("click", e => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = "none";
+                    }
+                });
+
+                // Função para aplicar zoom + movimento
+                function updateTransform(img) {
+                    img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                }
+    </script>
+</body>
+</html>
